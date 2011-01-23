@@ -1,0 +1,34 @@
+<h1><%= @user.name%>'s skills</h1>
+
+<%if @tags.length > 0%>
+  <% form_tag(tag_remove_user_path(@user)) do%>
+  <table>
+    <tr>
+      <th>Skill</th>
+      <th>Remove?</th>
+    </tr>
+    <% for tag in @tags do%>
+    <tr>
+      <td><%=h tag.name%></td>
+      <td><%= check_box_tag "tags[]", tag.id%></td>
+    </tr>
+    <%end%>    
+  </table>
+  <br/>
+  <%= submit_tag "Remove checked skills"%>
+  <%end%>
+  <%else%>
+  <p>Does not have any tags.</p>
+<%end%>
+
+<h2>Add new skills</h2>
+<% if @user.tags.count < Tag.count then%>
+  <% form_tag(tag_add_user_path(@user)) do%>
+  <%= select_tag(:tag, options_from_collection_for_select(@user.not_have_tags, :id, :name))%>
+  <%= submit_tag 'Add'%>
+<%end%>
+<%else%>
+<p> <%=h @user.name%> already has all the skills. </p>
+<%end%>
+
+<p><%=link_to "Back", edit_user_path%></p>

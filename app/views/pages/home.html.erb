@@ -1,0 +1,46 @@
+<%if signed_in?%>
+  <table class = "front" summary="For signed-in users">
+    <tr>
+      <td class="main">
+        <h1 class = "micropost"><%= "Your posts"%></h1>
+        <%=render 'shared/feed'%>
+      </td>
+      <td class = "sidebar round">
+        <%=render 'shared/user_info'%>
+      </td>
+     
+      
+    </tr>
+    
+    
+    
+    
+    
+    
+  </table>
+
+
+<%else%>
+<%= stylesheet_link_tag 'aboutCustom', :media => 'screen'%>
+  
+<div id="aboutBanner">
+  <div id="whatWeDo"></div>
+  <div id="slogan"></div>
+</div>
+<div id="explanation">
+  <div id="stepOne">
+    <p>Step One</p>
+  </div>
+  <div id="stepTwo">
+    <p>Step Two</p>
+  </div>
+  <div id="stepThree">
+    <p>Step Three</p>
+  </div>
+  <div id="SignUp">
+    <p>Sign Up <br/>
+      <%= link_to "sign up now!", signup_path, :class => "signup_button round"%></p>
+  </div>
+</div>
+
+<%end%>

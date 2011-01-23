@@ -1,0 +1,56 @@
+
+
+div #wrapper{
+  margin: 0 auto;
+  padding:20px 30px;
+  position:relative;
+}
+
+
+#titleHolder{
+}
+.timestamp{
+  float:left;
+  margin:0 50px 10px 0;
+}
+
+#colorBar{
+  height:3px;
+  width:500px;
+  background: -moz-linear-gradient(left, #FFFFFF 0%, #9B9B9B 13%, #494949 50%, #9B9B9B 86%, #FFFFFF 100%); /* firefox */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#FFFFFF), color-stop(13%,#9B9B9B), color-stop(50%,#494949), color-stop(86%,#9B9B9B), color-stop(100%,#FFFFFF)); /* webkit */
+}
+
+#locationName{
+  font-size:17px;
+  float:left;
+  
+}
+
+#description{
+  margin:10px 0 10px 0;
+  clear:both;
+}
+
+#compensation{
+  float:left;
+  margin:10px 0;
+}
+
+#information{
+float:left;
+margin: 0 0 0 60px;
+}
+
+
+#views, #responses{
+  float:left;
+  padding:0 10px;
+}
+
+#tagsDiv{
+  clear:both;
+  max-width:600px;
+}
+
+

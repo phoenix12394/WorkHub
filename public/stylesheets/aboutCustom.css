@@ -1,0 +1,52 @@
+
+#aboutBanner{
+  height:296px;
+  width:950px;
+  padding:0;
+  margin:0;
+  background-image:url('/images/Banner.jpg');
+}
+
+section{
+  padding:0 0 20px 0;
+}
+
+#explanation{
+  height:704px;
+  width:950px;
+  padding:0;
+  margin:0;
+  background-image:url('/images/ExplanationBG.jpg');
+  position:relative;
+  
+}
+
+
+#explanation div{
+  position:absolute;
+}
+
+#stepOne{
+  left:70px;
+  top:80px;
+}
+
+#stepTwo{
+  left:340px;
+  top:80px;
+}
+
+#stepThree{
+  left:590px;
+  top:80px;
+}
+
+
+#SignUp{
+  left:820px;
+  top:80px;
+}
+
+#SignUp p{
+  color:#ffffff;
+}

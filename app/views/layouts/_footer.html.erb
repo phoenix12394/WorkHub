@@ -1,0 +1,30 @@
+<footer>
+  <div id="footerInner">
+    <div id="footerBar">
+    <div id="Posts">
+      <p>Search Posts</p>
+      <ul>
+        <li>View By Tag</li>
+        <li><%= link_to "View By Categories", categories_path%></li>
+        <li><%= link_to "View By Locations", locations_path%></li>
+      </ul>
+    </div>
+    <div id="Help">
+      <p>Help Center</p>
+      <ul>
+        <li>Support</li>
+        <li>Tour</li>
+      </ul>
+    </div>
+    <div id="Company">
+      <p>Company</p>
+      <ul>
+        <li><%=link_to "About", about_path%></li>
+        <li><%=link_to "Contact", contact_path%></li>
+        <li><%=link_to "Privacy Policy", about_path%></li></li>
+        <li><%=link_to "Terms", about_path%></li>
+      </ul>
+    </div>
+    </div>
+  </div>
+</footer>
