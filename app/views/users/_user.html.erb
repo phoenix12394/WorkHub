@@ -1,7 +1,14 @@
 <li>
-      <%= gravatar_for user, :size =>30%>
+      <%= gravatar_for user, :size =>30, :default=>'identicon'%>
     <%= link_to user.name, user%>
     <% if current_user.admin?%>
      | <%=link_to "delete", user, :method=>:delete, :confirm => "you sure?", :title => "delete #{user.name}"%>
-     <%end%>
+     <%end%>     <div id="tagsDiv">
+      <%if user.tags.count > 0%>
+        <% user.tags.each do |tag|%>
+         <%=link_to tag.name , tag%>
+       <%end%>
+      <%else%>
+      <%end%>
+    </div>
   </li>

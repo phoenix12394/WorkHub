@@ -5,10 +5,12 @@ class Micropost < ActiveRecord::Base
   belongs_to :category
   
   default_scope :order => 'microposts.created_at DESC'
+  
+  
   has_and_belongs_to_many :tags
-  validates :title, :presence => true, :length => {:maximum => 50}
+  validates :title, :presence => true, :length => {:maximum => 100}
   validates_numericality_of :compensation, :on => :create
-  validates :content, :presence => true, :length => {:minimum => 20, :maximum => 140}
+  validates :content, :presence => true, :length => {:minimum => 3, :maximum => 1000}
  # validates :user_id, :presence => true
  # validates :location_id, :presence => true
 

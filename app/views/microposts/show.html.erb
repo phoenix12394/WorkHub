@@ -1,6 +1,4 @@
-  <%= stylesheet_link_tag 'custom2', :media => 'screen'%>
-  
-  
+
   
 <div id="wrapper" class ="micropost_profile" summary = "micropost information">
   <div id="titleHolder">
@@ -17,7 +15,7 @@
   </div>
   
   <div id="description">
-    <%=@micropost.content%>
+    <%=@micropost.content.html_safe%>
   </div>
   <div id="tags">
     
@@ -36,15 +34,20 @@
     </div>
   </div>
   <div id="tagsDiv">
-    <strong>Tags:</strong> <br/>
+    <strong>Tags:</strong>
     <%if @micropost.tags.count > 0%>
       <% @micropost.tags.each do |tag|%>
       <%=link_to tag.name , tag%>
     <%end%>
     <%else%>
-      None.
+      none.
     <%end%>
   </div>
+    <% if current_user?(@micropost.user)%>
+    <%= link_to "edit", edit_micropost_path%> | 
+    <%= link_to "delete", @micropost, :method => :delete, :confirm => "you sure?", :title => @micropost.content%>
+  
+  <%end%>
   
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -64,4 +67,3 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments.</a></noscript>
   </div>
-

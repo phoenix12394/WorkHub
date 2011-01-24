@@ -1,10 +1,21 @@
-<p id="notice"><%= notice %></p>
+<h1><%=h @tag.name%></h1>
 
-<p>
-  <b>Name:</b>
-  <%= @tag.name %>
-</p>
+<h2>Posts</h2>
+      <%unless @tag.microposts.empty?%>
+      <table class = "microposts" summary="Tag microposts">
+        <%= render @microposts%>
+      </table>
+      <%= will_paginate @microposts%>
+      <%else%>
+      No posts with tag.
+      <%end%>
+      <h2>Users</h2>
+      <%unless @tag.users.empty?%>
+<ul class ="users">
+  
+  <%= render @users%>
+<%=will_paginate @users%>
 
-
-<%= link_to 'Edit', edit_tag_path(@tag) %> |
-<%= link_to 'Back', tags_path %>
+      <%else%>
+      No users with tag.
+      <%end%>

@@ -1,6 +1,4 @@
-<%= stylesheet_link_tag 'signInCustom', :media => 'screen'%>
-<div id="signInWrapper">
-<h1>Sign In</h1>
+<h1>sign in</h1>
 
 <%= form_for(:session, :url => sessions_path) do |f|%>
   <div class = "field">
@@ -17,7 +15,5 @@
 <%end%>
 
 <p>New user? <%=link_to "sign up now!", signup_path%></p>
-
-</div>
 
 <%= set_focus_to_id 'session_email' %>

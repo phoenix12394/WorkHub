@@ -13,7 +13,10 @@ class TagsController < ApplicationController
   # GET /tags/1
   # GET /tags/1.xml
   def show
+
     @tag = Tag.find(params[:id])
+    @microposts = @tag.microposts.paginate(:page => params[:page])
+    @users = @tag.users.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -81,7 +84,10 @@ class TagsController < ApplicationController
     end
   end
   
-  def postings
+  def roll
     @tag = Tag.find(params[:id])
+    @microposts = @tag.microposts.paginate(:page => params[:page])
+    @users = @tag.users.paginate(:page => params[:page])
+
   end
 end

@@ -1,27 +1,27 @@
 <tr>
   
     <td class = "gravatar">
-    <%= link_to gravatar_for(micropost.user), micropost.user%>
+    <%= gravatar_for micropost.user, :default =>'identicon', :size => 50%>
   </td>
   <td class = "micropost">
     
     
     <span class ="title"><%= link_to micropost.title, micropost%></span><br/>
 
-    <span class ="content"><%= micropost.content%></span>
-    <span class ="timestamp">
-      Posted <%= time_ago_in_words(micropost.created_at)%> ago by <%= link_to micropost.user.name, micropost.user%>
-    </span>
+    <span class ="content"><%= micropost.content.html_safe%></span>
     <div id="tagsDiv">
-          <strong>Tags:</strong>
+    
       <%if micropost.tags.count > 0%>
         <% micropost.tags.each do |tag|%>
-          <%=link_to tag.name , tag%>
+         <%=link_to tag.name , tag%>
        <%end%>
       <%else%>
-      None.
       <%end%>
     </div>
+    <span class ="timestamp">
+      <%= time_ago_in_words(micropost.created_at)%> ago <%= link_to micropost.user.name, micropost.user%>
+    </span>
+
   </td>
   <% if current_user?(micropost.user)%>
   <td>

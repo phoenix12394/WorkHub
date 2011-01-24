@@ -1,7 +1,6 @@
 SampleApp::Application.routes.draw do
 
 
-  resources :tags
 
   match '/contact', :to => 'pages#contact'
   match '/help', :to => 'pages#help'
@@ -18,7 +17,7 @@ SampleApp::Application.routes.draw do
   resources :users,   :has_many => [:tags], :member => {:tags => :get, :tag_add => :post, :tag_remove => :post}
   resources :locations
   resources :categories
-  resources :tags, :memeber => {:postings => :get}
+  resources :tags, :memeber => {:roll => :get}, :has_many => [:users, :microposts]
   get 'newpost/autocomplete_tag_name'
 
   
@@ -43,7 +42,7 @@ SampleApp::Application.routes.draw do
   end
 
   resources :tags do
-    get 'postings', :on => :member
+    get 'roll', :on => :member
   end
   
 

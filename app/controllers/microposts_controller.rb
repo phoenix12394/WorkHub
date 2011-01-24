@@ -1,7 +1,32 @@
 class MicropostsController < ApplicationController
   before_filter :authenticate, :only => [:create, :destroy]
-  before_filter :authorized_user, :only => :destroy
+  before_filter :authorized_user, :only => [:destroy, :edit, :update]
   autocomplete :tag, :name
+
+
+    
+ # query = Micropost.order("created_at DESC")
+ # query = query.where("location_id = ?", params[:location_id]) unless params[:location_id].blank?
+ # query = query.where("category_id = ?", params[:category_id]) unless params[:category_id].blank?
+ # @microposts = query.all
+
+  def edit
+    @title = "Edit Post"
+    @micropost = Micropost.find(params[:id])
+    @tags = @micropost.tags
+  end
+
+  def update
+    if @micropost.update_attributes(params[:micropost])
+      flash[:success] = "post updated."
+      redirect_to @micropost
+    else
+      @title = "edit micropost"
+      render 'edit'
+    end
+  end
+
+  
   def create
     @micropost = current_user.microposts.build(params[:micropost])
     logger.debug "The object is #{params[:micropost]}"

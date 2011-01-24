@@ -23,7 +23,10 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @title = @category.name
-    @microposts = @category.microposts.paginate(:page => params[:page])
+    query = @category.microposts
+    query = query.order("created_at DESC")
+    query = query.where("location_id = ?", params[:location_id]) unless params[:location_id].blank?
+    @microposts = query.all.paginate(:page => params[:page])
 
   end
 end

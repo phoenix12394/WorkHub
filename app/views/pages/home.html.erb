@@ -1,12 +1,26 @@
 <%if signed_in?%>
+<%= form_tag(root_path, :method => "get") do%>
+
+  <div class = "field">
+    <%= label_tag(:l, "Location: ")%>
+    <%= select_tag(:location_id, options_for_select(["Select a location"] + Location.find(:all, :order => "name").collect{|s| [s.name + " (" + s.microposts.count.to_s + ")", s.id]}))%>
+  </div>
+  <div class = "field">
+    <%= label_tag(:c, "Category: ")%>
+    <%= select_tag(:category_id, options_for_select(["Select a category"] + Category.find(:all, :order => "name").collect{|s| [s.name + " (" + s.microposts.count.to_s + ")", s.id]}))%>
+  </div>
+  <div class = "field">
+    <%= label_tag(:t, "Tag: ")%>
+    <%= select_tag(:tag_id, options_for_select(["Select a tag"] + Tag.find(:all, :order => "name").collect{|s| [s.name + " (" + s.microposts.count.to_s + ")", s.id]}))%>
+  </div>
+  <%= submit_tag("Go")%>
+<%end%>
+
   <table class = "front" summary="For signed-in users">
     <tr>
       <td class="main">
-        <h1 class = "micropost"><%= "Your posts"%></h1>
+        <h1 class = "micropost"><%= "Recent posts"%></h1>
         <%=render 'shared/feed'%>
-      </td>
-      <td class = "sidebar round">
-        <%=render 'shared/user_info'%>
       </td>
      
       
@@ -24,23 +38,37 @@
 <%= stylesheet_link_tag 'aboutCustom', :media => 'screen'%>
   
 <div id="aboutBanner">
-  <div id="whatWeDo"></div>
-  <div id="slogan"></div>
+  <div id="aboutBannerInner">
+    <div id="what">
+      <h1>What We Do</h1>
+    </div>
+    <div id="Explain">
+      <h3>FileAJob.com connects users like you to the jobs that you are looking for. You can also post a job that you are looking to fill so that other users can connect to you.</h3>
+    </div>
+  </div>
 </div>
 <div id="explanation">
   <div id="stepOne">
-    <p>Step One</p>
+    <h2>Step One</h2>
+    <div id="makeAnAccount">
+      <h4>Make An Account</h4>
+    </div>
   </div>
   <div id="stepTwo">
-    <p>Step Two</p>
+    <h2>Step Two</h2>
+    <div id="setYourProfile">
+      <h4>Update Your Profile</h4>
+    </div>
   </div>
   <div id="stepThree">
-    <p>Step Three</p>
+    <h2>Step Three</h2>
+    <div id="choose">
+      <h4>Choose a Job</h4>
+    </div>
   </div>
   <div id="SignUp">
     <p>Sign Up <br/>
       <%= link_to "sign up now!", signup_path, :class => "signup_button round"%></p>
   </div>
 </div>
-
 <%end%>

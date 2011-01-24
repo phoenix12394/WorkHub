@@ -1,22 +1,25 @@
 <tr>
   <td class = "gravatar">
-    <%= link_to gravatar_for(feed_item.user), feed_item.user%>
+    <%= gravatar_for feed_item.user, :default =>'identicon', :size => 50%>
+
   </td>
   <td class = "micropost">
 
     <span class = "title"><%= link_to feed_item.title, feed_item%></span> <br/>
     <span class = "content"><%= feed_item.content.html_safe%></span>
-    <span class = "timestamp">
-      Posted <%= time_ago_in_words(feed_item.created_at)%> ago by <%= link_to feed_item.user.name, feed_item.user%>.
-    </span>
-          <strong>Tags:</strong>
+
+
+    <div id="tagsDiv">
       <%if feed_item.tags.count > 0%>
         <% feed_item.tags.each do |tag|%>
-          <%=link_to tag.name , tag%>
+         <%=link_to tag.name , tag%>
        <%end%>
       <%else%>
-      None.
       <%end%>
+    </div>
+    <span class = "timestamp">
+      Posted <%= time_ago_in_words(feed_item.created_at)%> ago by <%= link_to feed_item.user.name, feed_item.user%>.
+    </span> 
   </td>
   <% if current_user?(feed_item.user)%>
   <td>

@@ -17,14 +17,22 @@
     <%=f.label :password_confirmation, "confirmation"%><br/>
     <%=f.password_field :password_confirmation%>
   </div>
+  <div class = "actions">
+    <%= f.label :bio%> <br/>
+    <%= f.text_area :bio%>
+  </div>
+
   <div class ="actions">
     <%=f.submit "Update"%>
   </div>
 
   
   <%end%>
+  
+
+  
 <div>
-  <%= gravatar_for @user%>
+  <%= gravatar_for @user, :default =>'identicon'%>
   <a href="http://gravatar.com/emails">change</a>
 </div>
 <br/>

@@ -40,6 +40,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    @tags = @user.tags
     if @user.update_attributes(params[:user])
       flash[:success] = "profile updated."
       redirect_to @user

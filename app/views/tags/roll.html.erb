@@ -1,0 +1,21 @@
+<h1><%=h @tag.name%></h1>
+
+<h2>Posts</h2>
+      <%unless @tag.microposts.empty?%>
+      <table class = "microposts" summary="Tag microposts">
+        <%= render @microposts%>
+      </table>
+      <%= will_paginate @microposts%>
+      <%else%>
+      No posts with tag.
+      <%end%>
+      <h2>Users</h2>
+      <%unless @tag.users.empty?%>
+<ul class ="users">
+  
+  <%= render @users%>
+<%=will_paginate @users%>
+
+      <%else%>
+      No users with tag.
+      <%end%>

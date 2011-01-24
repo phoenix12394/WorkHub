@@ -2,7 +2,7 @@
   <tr>
      <td class = "main">
       <h1>
-        <%= gravatar_for @user%>
+        <%= gravatar_for @user, :default =>'identicon'%>
         <%=@user.name%>
       </h1>     
       <%unless @user.microposts.empty?%>
@@ -17,18 +17,23 @@
       
     </td>
     <td class = "sidebar round">
-      <strong>Name:</strong> <%=@user.name%> <br/>
+      <strong>Username:</strong> <%=@user.name%> <br/>
       <strong>URL:</strong> <%=link_to user_path(@user), @user%> <br/>
       <strong>Microposts:</strong> <%=@user.microposts.count%> <br/>
-      
-      <strong>Skills:</strong> <br/>
+      <%if @user.bio.blank?%>
+      <strong>Bio: </strong> <%= @user.bio%> <br/>
+      <%else%>
+      <strong>Bio: </strong> <%= @user.bio.html_safe%> <br/>
+      <%end%>
+      <strong>Tags: </strong>
+    <div id="tagsDiv">
       <%if @user.tags.count > 0%>
         <% @user.tags.each do |tag|%>
-          <%=link_to tag.name , tag%>
+         <%=link_to tag.name , tag%>
        <%end%>
       <%else%>
-      None.
       <%end%>
+    </div>
     </td>
   
   

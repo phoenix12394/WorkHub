@@ -5,19 +5,30 @@ namespace :db do
   task :populate => :environment do
     Rake::Task['db:reset'].invoke
     make_users
-    make_tags
+    
     make_locations
     make_categories
     make_microposts
+    make_tags
   end
 end
 
 
 def make_tags
-    50.times do |n|
-      name = Faker::Company.bs
-      Tag.create!(:name => name)
-    end   
+   User.all.each do |user|
+      5.times do |n|
+        name = Faker::Company.bs
+        user.tags.create!(:name => name)
+      end
+    
+    end  
+   Micropost.all.each do |micropost|
+      3.times do |n|
+        name = Faker::Company.bs
+        micropost.tags.create!(:name => name)
+      end
+   end  
+
   
 end
 def make_users
@@ -27,7 +38,8 @@ def make_users
       name = Faker::Internet.user_name
       email = "example-#{n+1}@watever.com"
       password = "password"
-      User.create!(:name => name, :email => email, :password => password, :password_confirmation => password)
+      bio = Faker::Lorem.paragraphs(2)
+      User.create!(:name => name, :email => email, :password => password, :password_confirmation => password, :bio => bio)
     end  
 end
 
