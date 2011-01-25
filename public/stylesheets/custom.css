@@ -1,6 +1,3 @@
-
-
-
 body, html, .container{
   margin:0;
   padding:0;
@@ -225,12 +222,15 @@ section h1{
 
 #tagsDiv{
   max-width:450px;
+  margin:5px 0 3px 0;
 
 }
 
 #tagsDiv a{
-  margin: 0 2px;
-  padding: 2px 4px;
+  display:inline-block;
+  white-space:nowrap;
+  margin: 1px 2px;
+  padding: 0px 2px;
   background-color:#65d439;
   color:#fff;
   border:2px;
@@ -434,6 +434,23 @@ table.microposts tr td.micropost span.timestamp{
  
 }
 
+table.microposts{
+  margin-top: 1em;
+}
+
+table.microposts tr{
+  height: 70px;
+  
+}
+
+table.microposts tr td.gravatar{
+  border-top: 1px solid #ccc;
+  vertical-align: top;
+  width: 50px;
+  
+}
+
+
 div.user_info img{
   padding-right: 0.1em;
   
@@ -469,3 +486,6 @@ form.edit_user textarea{
   width: 51em;
   margin-bottom: 0;  
 }
+
+
+

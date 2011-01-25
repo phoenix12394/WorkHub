@@ -3,13 +3,18 @@ class MicropostsController < ApplicationController
   before_filter :authorized_user, :only => [:destroy, :edit, :update]
   autocomplete :tag, :name
 
-
     
  # query = Micropost.order("created_at DESC")
  # query = query.where("location_id = ?", params[:location_id]) unless params[:location_id].blank?
  # query = query.where("category_id = ?", params[:category_id]) unless params[:category_id].blank?
  # @microposts = query.all
+def tag_name
+  tag.name if tag
+end
 
+def tag_name=(name)
+  self.tag = Tag.find_or_create_by_name(name) unless name.blank?
+end
   def edit
     @title = "Edit Post"
     @micropost = Micropost.find(params[:id])

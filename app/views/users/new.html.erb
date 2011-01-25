@@ -14,13 +14,14 @@
     <%=f.password_field :password%>
   </div>
   <div class = "field">
-    <%=f.label :password_confirmation, "confirmation"%><br/>
+    <%=f.label :password_confirmation, "Confirmation"%><br/>
     <%=f.password_field :password_confirmation%>
   </div>
   <div class ="actions">
-    <%=f.submit "sign up"%>
+    <%=f.submit "Sign up"%>
   </div>
   <%end%>
 
 
 <%= set_focus_to_id 'user_name' %>
+  <%= link_to "Sign up with Facebook", "/auth/facebook" %>

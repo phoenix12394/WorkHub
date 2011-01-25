@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20110115184356) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
+    t.integer  "location_id"
     t.text     "bio"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -76,5 +77,6 @@ ActiveRecord::Schema.define(:version => 20110115184356) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
+  add_index "users", ["location_id"], :name => "index_users_on_location_id"
 
 end

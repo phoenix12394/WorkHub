@@ -1,17 +1,21 @@
 <%if signed_in?%>
 <%= form_tag(root_path, :method => "get") do%>
+<%@selected1 = params[:location_id]%>
+<%@selected2 = params[:category_id]%>
+<%@selected3 = params[:tag_id]%>
+
 
   <div class = "field">
     <%= label_tag(:l, "Location: ")%>
-    <%= select_tag(:location_id, options_for_select(["Select a location"] + Location.find(:all, :order => "name").collect{|s| [s.name + " (" + s.microposts.count.to_s + ")", s.id]}))%>
+    <%= select_tag(:location_id, options_for_select(["Select a location"] + Location.find(:all, :order => "name").collect{|s| [s.name + " (" + s.microposts.count.to_s + ")", s.id]}, @selected1))%>
   </div>
   <div class = "field">
     <%= label_tag(:c, "Category: ")%>
-    <%= select_tag(:category_id, options_for_select(["Select a category"] + Category.find(:all, :order => "name").collect{|s| [s.name + " (" + s.microposts.count.to_s + ")", s.id]}))%>
+    <%= select_tag(:category_id, options_for_select(["Select a category"] + Category.find(:all, :order => "name").collect{|s| [s.name + " (" + s.microposts.count.to_s + ")", s.id]}, @selected2))%>
   </div>
   <div class = "field">
     <%= label_tag(:t, "Tag: ")%>
-    <%= select_tag(:tag_id, options_for_select(["Select a tag"] + Tag.find(:all, :order => "name").collect{|s| [s.name + " (" + s.microposts.count.to_s + ")", s.id]}))%>
+    <%= select_tag(:tag_id, options_for_select(["Select a tag"] + Tag.find(:all, :order => "name").collect{|s| [s.name + " (" + s.microposts.count.to_s + ")", s.id]},@selected3), :multiple => true)%>
   </div>
   <%= submit_tag("Go")%>
 <%end%>
@@ -43,7 +47,7 @@
       <h1>What We Do</h1>
     </div>
     <div id="Explain">
-      <h3>FileAJob.com connects users like you to the jobs that you are looking for. You can also post a job that you are looking to fill so that other users can connect to you.</h3>
+      <h3>We connect employers and employees based on the skills needed for a job and the skills processed by the employee. Start connecting today by creating an account! It's fast, free and easy!</h3>
     </div>
   </div>
 </div>

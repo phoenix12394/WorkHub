@@ -6,6 +6,7 @@ class Micropost < ActiveRecord::Base
   
   default_scope :order => 'microposts.created_at DESC'
   
+  scope :with_tags, lambda {|tags| joins(:tags).where("tags.name IN (?)", tags)}
   
   has_and_belongs_to_many :tags
   validates :title, :presence => true, :length => {:maximum => 100}

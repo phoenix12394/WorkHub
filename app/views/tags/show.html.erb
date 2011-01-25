@@ -1,21 +1,36 @@
-<h1><%=h @tag.name%></h1>
+<%= stylesheet_link_tag 'postuserbytag', :media => 'screen'%>
 
-<h2>Posts</h2>
+<div id="tagName">
+<h2>Tagged with <%=h @tag.name%></h2>
+</div>
+
+
+<div id="tabsBar">
+  <div id="postTab">
+    <a>Posts</a>
+  </div>
+  <div id="userTab">
+    <a>Users</a>
+  </div>
+</div>
+
+<div id="postsByTag">
       <%unless @tag.microposts.empty?%>
       <table class = "microposts" summary="Tag microposts">
         <%= render @microposts%>
       </table>
-      <%= will_paginate @microposts%>
+      <%= will_paginate @microposts, :per_page =>10%>
       <%else%>
       No posts with tag.
       <%end%>
-      <h2>Users</h2>
-      <%unless @tag.users.empty?%>
-<ul class ="users">
-  
+</div>
+
+<div id="usersByTag">      
+      <%unless @users.empty?%>
   <%= render @users%>
-<%=will_paginate @users%>
+<%=will_paginate @users, :per_page => 10%>
 
       <%else%>
       No users with tag.
       <%end%>
+</div>

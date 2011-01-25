@@ -6,7 +6,7 @@
   <td class = "micropost">
 
     <span class = "title"><%= link_to feed_item.title, feed_item%></span> <br/>
-    <span class = "content"><%= feed_item.content.html_safe%></span>
+    <span class = "content"><%= feed_item.content.html_safe[0..256] + "..."%></span>
 
 
     <div id="tagsDiv">

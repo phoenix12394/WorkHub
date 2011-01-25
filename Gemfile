@@ -1,7 +1,9 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails', '3.0.0'
+gem 'nifty-generators'
 
+gem 'omniauth'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -17,6 +19,7 @@ gem 'gravatar_image_tag', '0.1.0'
 gem 'rails3-jquery-autocomplete'
 
 gem 'will_paginate', '3.0.pre2'
+
 
 
 

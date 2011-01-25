@@ -3,21 +3,19 @@
 <table>
   <tr>
     <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <th>Posts</th>
+    <th>Users</th>
 
-<% @tags.each do |tag| %>
+  </tr>
+<% Tag.find(:all, :order => "name").each do |tag| %>
   <tr>
-    <td><%= tag.name %></td>
-    <td><%= link_to 'Show', tag %></td>
-    <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
-    <td><%= link_to 'Destroy', tag, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td>    <div id="tagsDiv">
+<%= link_to tag.name, tag %></div</td>
+    <td><%= tag.microposts.count %></td>
+    <td><%= tag.users.count %></td>
+    
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Tag', new_tag_path %>

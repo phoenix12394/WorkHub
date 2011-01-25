@@ -15,6 +15,18 @@ class SessionsController < ApplicationController
     end
     
   end
+
+def createauto
+  auth = request.env["omniauth.auth"]
+  if (auth['provider'] == "facebook")
+  user = User.find_by_email(auth['extra']['user_hash']["email"]) || User.create_with_omniauth(auth)
+else
+    user = User.find_by_email(auth['user_info']["email"]) || User.create_with_omniauth(auth)
+    
+  end
+  sign_in user
+  redirect_back_or user
+end
   
   def destroy
     sign_out

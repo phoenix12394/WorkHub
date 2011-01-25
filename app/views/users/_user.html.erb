@@ -1,14 +1,18 @@
-<li>
+<table class = "microposts" summary="Tag microposts">
+<tr>
+  <td class='gravatar'>
       <%= gravatar_for user, :size =>30, :default=>'identicon'%>
+  </td>
+  <td class="micropost">
     <%= link_to user.name, user%>
-    <% if current_user.admin?%>
-     | <%=link_to "delete", user, :method=>:delete, :confirm => "you sure?", :title => "delete #{user.name}"%>
-     <%end%>     <div id="tagsDiv">
+    <div id="tagsDiv">
       <%if user.tags.count > 0%>
         <% user.tags.each do |tag|%>
          <%=link_to tag.name , tag%>
-       <%end%>
+      <%end%>
       <%else%>
       <%end%>
     </div>
-  </li>
+  </td>
+</tr>
+</table>

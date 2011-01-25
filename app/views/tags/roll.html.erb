@@ -5,16 +5,15 @@
       <table class = "microposts" summary="Tag microposts">
         <%= render @microposts%>
       </table>
-      <%= will_paginate @microposts%>
+      <%= will_paginate @microposts, :per_page =>10%>
       <%else%>
       No posts with tag.
       <%end%>
       <h2>Users</h2>
-      <%unless @tag.users.empty?%>
-<ul class ="users">
-  
+      <%unless @users.empty?%>
+
   <%= render @users%>
-<%=will_paginate @users%>
+<%=will_paginate @users, :per_page => 10%>
 
       <%else%>
       No users with tag.

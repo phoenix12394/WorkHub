@@ -8,17 +8,20 @@ SampleApp::Application.routes.draw do
   match '/about', :to => 'pages#about'
   match '/signup', :to => 'users#new'
   match '/signin', :to => 'sessions#new'
-  match '/signout', :to => 'sessions#destroy'
-  
+#  match '/signout', :to => 'sessions#destroy'
+match "/auth/:provider/callback" => "sessions#createauto"
+match "/signout" => "sessions#destroy", :as => :signout  
   match '/newlocation', :to => 'locations#new'
   match '/newcategory', :to => 'categories#new'
-
-  match '/newpost', :to => 'microposts#new'
+  
+  get '/microposts/new', :to => 'microposts#new'
+  #root :to => "microposts#new"
+  #get '/newpost', :to => 'microposts#new'
   resources :users,   :has_many => [:tags], :member => {:tags => :get, :tag_add => :post, :tag_remove => :post}
   resources :locations
   resources :categories
   resources :tags, :memeber => {:roll => :get}, :has_many => [:users, :microposts]
-  get 'newpost/autocomplete_tag_name'
+  get 'microposts/autocomplete_tag_name'
 
   
   resources :sessions, :only=> [:new, :create, :destroy]
@@ -30,10 +33,8 @@ SampleApp::Application.routes.draw do
       post 'tag_remove'
     end
   end
-  get 'newpost/autocomplete_brand_name'
   
   resources :microposts do
-    get :autocomplete_tag_name, :on => :collection
     get 'tags', :on => :member
     member do
       post 'tag_add'

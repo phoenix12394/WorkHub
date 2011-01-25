@@ -1,3 +1,5 @@
+
+
 <h1>Edit Profile</h1>
 <%= form_for (@user) do |f|%>
 <%=render 'shared/error_messages', :object => f.object%>
@@ -22,6 +24,10 @@
     <%= f.text_area :bio%>
   </div>
 
+  <div class = "field">
+    <%= f.label :location_id%>
+    <%= f.select :location_id, ["Select a location"] + Location.find(:all, :order => "name").collect{|s| [s.name, s.id]}%>
+  </div>
   <div class ="actions">
     <%=f.submit "Update"%>
   </div>

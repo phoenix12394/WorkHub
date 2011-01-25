@@ -1,14 +1,27 @@
 class User < ActiveRecord::Base
   attr_accessor :password
-  attr_accessible :name, :email, :password, :password_confirmation, :bio
+  attr_accessible :name, :email, :password, :password_confirmation, :bio, :location_id
   has_many :microposts, :dependent => :destroy
   validates :password, :presence => true, :confirmation => true, :length => {:within => 6..40}
   before_save :encrypt_password
   has_and_belongs_to_many :tags
-  
+  belongs_to :location
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :name, :presence => true, :length => {:maximum => 50}
   validates :email, :presence => true, :format => {:with => email_regex}, :uniqueness => {:case_sensitive => false}
+
+def self.create_with_omniauth(auth)
+  create! do |user|
+    user.password = "omniauth"
+    if auth['provider'] == "facebook"
+    user.email = auth['extra']['user_hash']["email"]
+else
+  user.email = auth['user_info']['email']      
+    end
+    user.name = auth["user_info"]["name"]
+  end
+end
+
 
   def has_tag?(tag)
     self.tags.include?(tag)

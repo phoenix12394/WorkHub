@@ -5,30 +5,32 @@ namespace :db do
   task :populate => :environment do
     Rake::Task['db:reset'].invoke
     make_users
-    
     make_locations
-    make_categories
     make_microposts
     make_tags
+    make_post_content
   end
 end
 
 
 def make_tags
+Tag.all.each do |tag|
    User.all.each do |user|
-      5.times do |n|
-        name = Faker::Company.bs
-        user.tags.create!(:name => name)
+     if (rand(10) == 1)
+        user.tags << Tag.find_by_name(tag.name)
       end
+    end 
     
-    end  
-   Micropost.all.each do |micropost|
-      3.times do |n|
-        name = Faker::Company.bs
-        micropost.tags.create!(:name => name)
-      end
-   end  
+    
+end 
 
+Tag.all.each do |tag|
+   Micropost.all.each do |post|
+     if (rand(20) == 1)
+        post.tags << Tag.find_by_name(tag.name)
+      end
+    end 
+end
   
 end
 def make_users
@@ -44,13 +46,42 @@ def make_users
 end
 
 def make_microposts
-    User.all(:limit => 6).each do |user|
-      50.times do |n|
-        user.microposts.create!(:title => Faker::Lorem.sentence(1), :content => Faker::Lorem.paragraphs(3), :location_id => n.modulo(10), :category_id => n.modulo(10), :compensation => 10 + rand(25))
+  tags = Tag.all
+    User.all.each do |user|
+      10.times do |n|
+        if (rand(3) == 1)
+          num = rand(5)
+          tag = tags[rand(100)].name
+          if num == 0
+            title = "Looking someone for " + tag + ", will pay well!"
+          end
+          if num == 1
+            title = tag + " needed ASAP"
+          end
+          if num == 2
+            title = "Can someone do " + tag + "?"
+          end
+          if num == 3
+            title = tag + " wanted"
+          end                  
+          if num == 4
+            title = "I need " + tag + " skills"
+          end        
+          user.microposts.create!(:title => title, :content => Faker::Lorem.paragraphs(3), :location_id => rand(51), :category_id => rand(31), :compensation => 10 + rand(25))
+        end
       end
     
     end  
   end
+    
+def make_post_content
+  Micropost.all.each do |post|
+    post.content = "asdkljksldjckljweklcjlkajwckljawekljvklawjklvjawkejcjaklewklckaweacwjecjaklw"
+    
+    
+  end
+  
+end    
     
 def make_locations
     50.times do |n|
@@ -59,13 +90,4 @@ def make_locations
     end   
 
 
-end
-
-def make_categories
-    50.times do |n|
-      name = Faker::Company.bs
-      name_array = name.split
-      name = name_array[1].capitalize + " " + name_array[2].capitalize
-      Category.create!(:name => name)
-    end   
 end

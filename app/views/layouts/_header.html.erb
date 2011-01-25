@@ -1,4 +1,4 @@
-    <div id="headerBG">
+  <div id="headerBG">
     <header>
       <div id="headerInner">
       <div id="logoDiv">
@@ -10,10 +10,11 @@
           <h5>Not <%= current_user.name%>? Then <%=link_to "Sign out", signout_path, :method => :delete%></h5>
         </div>
         <%end%>
+        <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="http://www.facebook.com/pages/FileAJob/121199847951972" layout="button_count" show_faces="false" width="450"></fb:like>
       <div id="accountNav">
         <ul>
-          <li><%=link_to "New Post", newpost_path%></li>
           <% if signed_in?%>
+            <li><%=link_to "New Post", microposts_new_path%></li>
             <li><%=link_to "Sign out", signout_path, :method => :delete%>  </li>
             <%else%>
           <li><%= link_to "Login", signin_path%></li> 
@@ -23,26 +24,5 @@
       </div>
       </div>
       </div>
-    <!--  <div id="navigationBar" class = "round">
-        <ul>
-          <li><%= link_to "Home", root_path%></li>
-          <li><%= link_to "Locations", locations_path%></li>
-          <li><%= link_to "Categories", categories_path%></li>
-          <%if signed_in?%>
-          <%if current_user.admin?%>
-          <li><%=link_to "Users", users_path%></li>
-          <%end%>
-          <li><%=link_to "Profile", current_user%></li>
-          <li><%=link_to "Settings", edit_user_path(current_user)%></li>
-          <li><%=link_to "New Post", newpost_path%></li>
-          <%end%>
-          
-          <li><%= link_to "Help", about_path%></li>
-          <% if signed_in?%>
-            <li><%=link_to "Sign out", signout_path, :method => :delete%>  </li>
-            <%else%>
-          <li><%= link_to "Sign in", signin_path%></li>
-            <%end%>
-        </ul>
-    </div> -->
+
     </header>

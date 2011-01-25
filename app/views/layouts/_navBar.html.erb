@@ -1,4 +1,3 @@
-
 <div id="navigationBar" class = "round">
         <ul>
           <li><%= link_to "Home", root_path%></li>
@@ -10,7 +9,7 @@
           <%end%>
           <li><%=link_to "Profile", current_user%></li>
           <li><%=link_to "Settings", edit_user_path(current_user)%></li>
-          <li><%=link_to "New Post", newpost_path%></li>
+          <li><%=link_to "New Post", microposts_new_path%></li>
           <%end%>
           
           <li><%= link_to "Help", about_path%></li>

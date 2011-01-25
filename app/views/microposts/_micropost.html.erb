@@ -8,7 +8,7 @@
     
     <span class ="title"><%= link_to micropost.title, micropost%></span><br/>
 
-    <span class ="content"><%= micropost.content.html_safe%></span>
+    <span class ="content"><%= micropost.content.html_safe[0..256] + "..."%></span>
     <div id="tagsDiv">
     
       <%if micropost.tags.count > 0%>

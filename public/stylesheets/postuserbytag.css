@@ -1,0 +1,67 @@
+#tagName h2{
+  font-size:23px;
+}
+
+#tabsBar h2{
+  font-size:19px;
+}
+
+#tabsBar{
+  margin:0 auto;
+  position:relative;
+  height:45px;
+}
+
+#tabsBar div{
+  background-color:#ccc;
+  position:absolute;
+  width:100px;
+  padding: 0 5px;
+  text-align:center;
+  font-size:19px;
+}
+
+#tabsBar div:hover{
+  padding: 5px 5px 0 5px; 
+}
+
+#tabsBar div a{
+  cursor:pointer;
+  color:#444;
+  text-decoration:none;
+}
+
+
+
+#postTab{
+  bottom:-1px;
+  left:30px;
+  border-top:1px solid #ccc;
+  border-left:1px solid #ccc;
+  border-right:1px solid #ccc;
+  z-index:3;
+}
+
+#userTab{
+  bottom:-1px;
+  left:150px;
+  border-top:1px solid #ccc;
+  border-left:1px solid #ccc;
+  border-right:1px solid #ccc;
+  z-index:3;
+}
+
+#postsByTag{
+  border:1px solid #ccc;
+  padding: 5px;
+}
+
+#usersByTag{
+  border:1px solid #ccc;
+  padding: 5px;
+}
+
+
+li{
+  list-style-type:none;
+}

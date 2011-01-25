@@ -1,17 +1,28 @@
-
-  
 <div id="wrapper" class ="micropost_profile" summary = "micropost information">
   <div id="titleHolder">
     <h1>
       <%=@micropost.title%>
     </h1>
     <div id="colorBar"></div>
-    <div class ="timestamp">
-      Posted <%= time_ago_in_words(@micropost.created_at)%> ago by <%= link_to @micropost.user.name, @micropost.user%>
-    </div>
-    <div id="locationName">
-    Location: <%=@micropost.location.name%> 
-    </div>
+    <table>
+      <tr>
+         <th>
+        <div id="locationName">
+          Location: <%=@micropost.location.name%> 
+        </div>         
+        </th>
+        <th>
+
+          <div id ="locationName">
+            Category: <%=@micropost.category.name%>
+           </div>           
+        </th>
+
+      </tr>
+      
+      
+    </table>
+         
   </div>
   
   <div id="description">
@@ -43,11 +54,33 @@
       none.
     <%end%>
   </div>
+  <table>
+  <td>
+    
     <% if current_user?(@micropost.user)%>
     <%= link_to "edit", edit_micropost_path%> | 
     <%= link_to "delete", @micropost, :method => :delete, :confirm => "you sure?", :title => @micropost.content%>
   
-  <%end%>
+  <%end%>      
+  </td>    
+  <td>
+    <td>
+  <%= gravatar_for @micropost.user, :size =>30, :default=>'identicon'%>
+</td>
+<td>
+<tr>
+  <%= link_to @micropost.user.name, @micropost.user%>
+  
+</tr>
+<tr>
+  <%= time_ago_in_words(@micropost.created_at)%> ago
+    </tr>  
+</td>
+
+  </td>
+  </table>
+
+
   
 <div id="disqus_thread"></div>
 <script type="text/javascript">

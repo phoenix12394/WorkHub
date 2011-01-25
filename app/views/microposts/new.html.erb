@@ -27,12 +27,8 @@
     <%=f.submit "Next"%>
   </div>
 
-
   <%end%>
     
-
-<%=form_tag @tag do |f|%>
-  <%=text_field_tag 'name', '', :autocomplete => newpost_autocomplete_tag_name_path %>
+<%= set_focus_to_id 'title' %>
 
 
-<%end%>
