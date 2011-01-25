@@ -1,4 +1,4 @@
-#tagName h2{
+me h2{
   font-size:23px;
 }
 
@@ -19,6 +19,7 @@
   padding: 0 5px;
   text-align:center;
   font-size:19px;
+  cursor:pointer;
 }
 
 #tabsBar div:hover{
@@ -62,6 +63,4 @@
 }
 
 
-li{
-  list-style-type:none;
-}
+

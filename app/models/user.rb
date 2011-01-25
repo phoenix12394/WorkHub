@@ -28,7 +28,7 @@ end
   end
   
   def not_have_tags
-    Tag.find(:all) - self.tags
+    Tag.find(:all, :order => "name") - self.tags
   end
   
   def has_password?(submitted_password)

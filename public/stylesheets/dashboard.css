@@ -1,0 +1,107 @@
+
+#tabsBar a{
+  font-size:19px;
+}
+
+#tabsBar{
+  margin:0 auto;
+  position:relative;
+  height:45px;
+}
+
+#tabsBar div{
+  background-color:#ccc;
+  position:absolute;
+  width:100px;
+  padding: 0 5px;
+  text-align:center;
+  font-size:19px;
+  cursor:pointer;
+}
+
+#tabsBar div:hover{
+  padding: 5px 5px 0 5px; 
+}
+
+#tabsBar div a{
+  cursor:pointer;
+  color:#444;
+  text-decoration:none;
+}
+
+#credsTab{
+  bottom:-1px;
+  left:30px;
+  border-top:1px solid #ccc;
+  border-left:1px solid #ccc;
+  border-right:1px solid #ccc;
+  z-index:3;
+}
+
+#bioTab{
+  bottom:-1px;
+  left:150px;
+  border-top:1px solid #ccc;
+  border-left:1px solid #ccc;
+  border-right:1px solid #ccc;
+  z-index:3;
+}
+
+#tag{
+  width:180px;
+  height:200px;
+}
+
+#skillsTab{
+  bottom:-1px;
+  left:270px;
+  border-top:1px solid #ccc;
+  border-left:1px solid #ccc;
+  border-right:1px solid #ccc;
+  z-index:3;
+}
+
+#credsContent{
+  border:1px solid #ccc;
+  padding: 10px;
+}
+
+#skillsContent{
+  border:1px solid #ccc;
+  padding: 10px;
+  min-height:300px;
+}
+
+#bioContent{
+  border:1px solid #ccc;
+  padding: 10px;
+  position:relative;
+}
+
+#gravatarBox{
+  float:left;
+}
+
+#locationBox{
+  float:left;
+  margin: 70px 0 0 200px;
+}
+
+#empty{
+  clear:both;
+}
+
+#bioBox{
+  margin:50px 0 0 0;
+}
+
+
+#currentSkills{
+  float:left;
+}
+
+#addSkills{
+  float:left;
+  margin:0 0 0 180px;
+}
+

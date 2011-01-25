@@ -1,3 +1,11 @@
+#background{
+  background-image:url("/images/aboutBG.png");
+  height:500;
+  width:800;
+}
+
+
+
 #aboutBanner{
   height:327px;
   width:850px;

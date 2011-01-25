@@ -8,7 +8,6 @@ namespace :db do
     make_locations
     make_microposts
     make_tags
-    make_post_content
   end
 end
 
@@ -40,7 +39,7 @@ def make_users
       name = Faker::Internet.user_name
       email = "example-#{n+1}@watever.com"
       password = "password"
-      bio = Faker::Lorem.paragraphs(2)
+      bio = Faker::Lorem.paragraph(5)
       User.create!(:name => name, :email => email, :password => password, :password_confirmation => password, :bio => bio)
     end  
 end
@@ -67,21 +66,13 @@ def make_microposts
           if num == 4
             title = "I need " + tag + " skills"
           end        
-          user.microposts.create!(:title => title, :content => Faker::Lorem.paragraphs(3), :location_id => rand(51), :category_id => rand(31), :compensation => 10 + rand(25))
+          user.microposts.create!(:title => title, :content => Faker::Lorem.paragraph(10), :location_id => rand(51), :category_id => rand(31), :compensation => 10 + rand(25))
         end
       end
     
     end  
   end
-    
-def make_post_content
-  Micropost.all.each do |post|
-    post.content = "asdkljksldjckljweklcjlkajwckljawekljvklawjklvjawkejcjaklewklckaweacwjecjaklw"
-    
-    
-  end
-  
-end    
+       
     
 def make_locations
     50.times do |n|

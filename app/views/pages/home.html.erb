@@ -15,7 +15,7 @@
   </div>
   <div class = "field">
     <%= label_tag(:t, "Tag: ")%>
-    <%= select_tag(:tag_id, options_for_select(["Select a tag"] + Tag.find(:all, :order => "name").collect{|s| [s.name + " (" + s.microposts.count.to_s + ")", s.id]},@selected3), :multiple => true)%>
+    <%= select_tag(:tag_id, options_for_select(Tag.find(:all, :order => "name").collect{|s| [s.name + " (" + s.microposts.count.to_s + ")", s.id]}, @selected3), :multiple => true)%>
   </div>
   <%= submit_tag("Go")%>
 <%end%>
@@ -41,6 +41,25 @@
 <%else%>
 <%= stylesheet_link_tag 'aboutCustom', :media => 'screen'%>
   
+<div id="background">
+  <div id="mainText">
+    <div id="what">
+      <h1>What We Do</h1>
+    </div>
+    <div id="Explain">
+      <h3>We connect employers and employees based on the skills needed for a job and the skills processed by the employee. Start connecting today by creating an account! It's fast, free and easy!</h3>
+    </div>
+  </div>
+  <div id="changingText">
+    <div id="pictureBar">
+      
+    </div>
+    <div id="blurbBox">
+      
+    </div>
+    
+  </div>
+</div>
 <div id="aboutBanner">
   <div id="aboutBannerInner">
     <div id="what">

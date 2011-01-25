@@ -65,30 +65,27 @@ class UsersController < ApplicationController
 
   def tag_add
     @user = User.find(params[:id])
-    @tag = Tag.find(params[:tag])
-    
-    unless @user.has_tag?(@tag)
+    tags = Tag.all
+    params[:tag].each do |tag|
+      @tag = Tag.find(tag)
       @user.tags << @tag
-      flash[:notice] = 'Tag was successfully added'
-    else
-      flash[:error] = 'User already has tag.'
     end
+   
+    flash[:notice] = 'Tags were successfully added'
+
     redirect_to :action => :edit, :id => @user
   end
   
   def tag_remove
     @user = User.find(params[:id])
-    tag_ids = params[:tags]
-    unless tag_ids.blank?
-      tag_ids.each do |tag_id|
-        tag = Tag.find(tag_id)
-        if @user.has_tag?(tag)
-          logger.info "Removing tag #{tag.id} from user."
-          @user.tags.delete(tag)
-          flash[:notice] = 'Tag was successfully deleted'
-        end
-      end
+    tags = Tag.all
+    params[:tag].each do |tag|
+      @tag = Tag.find(tag)
+      @user.tags.delete(@tag)
     end
+   
+    flash[:notice] = 'Tags were successfully removed'
+
     redirect_to :action => :edit, :id => @user
   end
   
