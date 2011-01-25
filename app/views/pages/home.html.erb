@@ -1,44 +1,3 @@
-<%if signed_in?%>
-<%= form_tag(root_path, :method => "get") do%>
-<%@selected1 = params[:location_id]%>
-<%@selected2 = params[:category_id]%>
-<%@selected3 = params[:tag_id]%>
-
-
-  <div class = "field">
-    <%= label_tag(:l, "Location: ")%>
-    <%= select_tag(:location_id, options_for_select(["Select a location"] + Location.find(:all, :order => "name").collect{|s| [s.name + " (" + s.microposts.count.to_s + ")", s.id]}, @selected1))%>
-  </div>
-  <div class = "field">
-    <%= label_tag(:c, "Category: ")%>
-    <%= select_tag(:category_id, options_for_select(["Select a category"] + Category.find(:all, :order => "name").collect{|s| [s.name + " (" + s.microposts.count.to_s + ")", s.id]}, @selected2))%>
-  </div>
-  <div class = "field">
-    <%= label_tag(:t, "Tag: ")%>
-    <%= select_tag(:tag_id, options_for_select(Tag.find(:all, :order => "name").collect{|s| [s.name + " (" + s.microposts.count.to_s + ")", s.id]}, @selected3), :multiple => true)%>
-  </div>
-  <%= submit_tag("Go")%>
-<%end%>
-
-  <table class = "front" summary="For signed-in users">
-    <tr>
-      <td class="main">
-        <h1 class = "micropost"><%= "Recent posts"%></h1>
-        <%=render 'shared/feed'%>
-      </td>
-     
-      
-    </tr>
-    
-    
-    
-    
-    
-    
-  </table>
-
-
-<%else%>
 <%= stylesheet_link_tag 'aboutCustom', :media => 'screen'%>
   
 <div class="round" id="background">
@@ -82,46 +41,22 @@
         
       </div>
     </div>
-    <div id="blurbBox">
-      
+    <div id="blurbBox1">
+      <div id="words">
+        <p>Need Something Done?</p>
+        <p>Make a post with us and get on with your day. We will connect you with potential employees to choose from, so just sit back, relax, and choose the right person for you.</p>
+      </div>
     </div>
-    
+    <div id="blurbBox2">
+      <div id="words">
+        
+      </div>
+    </div>
+    <div id="blurbBox3">
+      <div id="words">
+        <p>Got a skill to share?</p>
+        <p>Create a profile with us describing yourself. We will connect you to with employers looking for those skills and notify you if a request is made for your services.</p>
+      </div>
+    </div>
   </div>
 </div>
-
-<!--
-<div id="aboutBanner">
-  <div id="aboutBannerInner">
-    <div id="what">
-      <h1>What We Do</h1>
-    </div>
-    <div id="Explain">
-      <h3>We connect employers and employees based on the skills needed for a job and the skills processed by the employee. Start connecting today by creating an account! It's fast, free and easy!</h3>
-    </div>
-  </div>
-</div>
-<div id="explanation">
-  <div id="stepOne">
-    <h2>Step One</h2>
-    <div id="makeAnAccount">
-      <h4>Make An Account</h4>
-    </div>
-  </div>
-  <div id="stepTwo">
-    <h2>Step Two</h2>
-    <div id="setYourProfile">
-      <h4>Update Your Profile</h4>
-    </div>
-  </div>
-  <div id="stepThree">
-    <h2>Step Three</h2>
-    <div id="choose">
-      <h4>Choose a Job</h4>
-    </div>
-  </div>
-  <div id="SignUp">
-    <p>Sign Up <br/>
-      <%= link_to "sign up now!", signup_path, :class => "signup_button round"%></p>
-  </div>
-</div>-->
-<%end%>

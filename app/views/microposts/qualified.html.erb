@@ -1,0 +1,20 @@
+<%=link_to "Back", micropost_path%>
+  <table class = "front" summary="For signed-in users">
+    <tr>
+      <td class="main">
+        <h1 class = "micropost">Users qualified for <%=@micropost.title %></h1>
+        <%=will_paginate @users%>
+  <%= render @users%>
+<%=will_paginate @users%>
+
+      </td>
+     
+      
+    </tr>
+    
+    
+    
+    
+    
+    
+  </table>

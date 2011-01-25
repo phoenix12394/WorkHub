@@ -1,4 +1,4 @@
-<h1>New post</h1>
+<h1>Edit post</h1>
 <%= form_for (@micropost) do |f|%>
 <%=render 'shared/error_messages', :object => f.object%>
   <div class = "field">
@@ -23,42 +23,10 @@
     <%= f.label :compensation%><br/>
     <%= f.text_field :compensation%>
   </div>
-
-
-
- 
-  <h1>Tags</h1>
-
-  <%if @tags.length > 0%>
-    <% form_tag(tag_remove_micropost_path(@micropost)) do%>
-      <table>
-        <tr>
-          <th>Skill</th>
-          <th>Remove?</th>
-        </tr>
-      <% for tag in @tags do%>
-        <tr>
-          <td><%=h tag.name%></td>
-          <td><%= check_box_tag "tags[]", tag.id%></td>
-        </tr>
-      <%end%>    
-      </table>
-      <%= submit_tag "Remove checked skills"%>
-      <%end%>
-  <%else%>
-  <p>Post does not have any tags.</p>
-  <%end%>
-
-  <h2>Add new Tags</h2>
-  <% if @micropost.tags.count < Tag.count then%>
-    <% form_tag(tag_add_micropost_path(@micropost)) do%>
-      <%= select_tag(:tag, options_from_collection_for_select(@micropost.not_have_tags, :id, :name))%>
-      <%= submit_tag 'Add'%>
-    <%end%>
-    <%else%>
-    <p> <%=h @micropost.title%> already has all the skills. </p>
-    <%end%>
+    
+    <%=link_to "Edit tags", tags_micropost_path%><br/>
     <div class ="actions">
       <%=f.submit "Done"%>
     </div>
+
   <%end%>

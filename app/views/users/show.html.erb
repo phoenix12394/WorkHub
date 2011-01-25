@@ -16,8 +16,11 @@
       
       
     </td>
+    
+    
+    
     <td class = "sidebar round">
-      <strong>Username:</strong> <%=@user.name%> <br/>
+      <strong>Display name:</strong> <%=@user.name%> <br/>
       <strong>Location: </strong> <%=@user.location.name unless @user.location.blank?%> <br/>
       <strong>URL:</strong> <%=link_to user_path(@user), @user%> <br/>
       <strong>Posts:</strong> <%=@user.microposts.count%> <br/>
@@ -29,18 +32,24 @@
       <strong>Tags: </strong>
     <div id="tagsDiv">
       <%if @user.tags.count > 0%>
-        <% @user.tags.each do |tag|%>
+        <% @user.has_tags.each do |tag|%>
          <%=link_to tag.name , tag%>
        <%end%>
       <%else%>
       <%end%>
     </div>
+      <strong><%=link_to "Jobs qualified", qualifications_user_path%></strong>
+
     </td>
   
   
   
   </tr>
 </table>
+
+
+
+
 <h1>Leave <%=@user.name%> a comment:</h1>
 <div id="disqus_thread"></div>
 <script type="text/javascript">

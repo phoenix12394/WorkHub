@@ -35,14 +35,6 @@
     $<%=@micropost.compensation%> per hour
   </div>
   <div id="information">
-    <div id="views">
-      233<br/>
-      views
-    </div>
-    <div id="responses">
-      2<br/>
-      responses
-    </div>
   </div>
   <div id="tagsDiv">
     <strong>Tags:</strong>
@@ -56,29 +48,22 @@
   </div>
   <table>
   <td>
-    
     <% if current_user?(@micropost.user)%>
     <%= link_to "edit", edit_micropost_path%> | 
-    <%= link_to "delete", @micropost, :method => :delete, :confirm => "you sure?", :title => @micropost.content%>
-  
+    <%= link_to "delete", @micropost, :method => :delete, :confirm => "you sure?", :title => @micropost.content%> |
+    <%= link_to "qualified candidates", qualified_micropost_path%>
   <%end%>      
   </td>    
-  <td>
-    <td>
-  <%= gravatar_for @micropost.user, :size =>30, :default=>'identicon'%>
-</td>
-<td>
-<tr>
-  <%= link_to @micropost.user.name, @micropost.user%>
-  
-</tr>
-<tr>
-  <%= time_ago_in_words(@micropost.created_at)%> ago
-    </tr>  
-</td>
-
-  </td>
   </table>
+<div id="userwrapper">
+  <div id="userInfo">
+  <div id="timeCheck"><%= time_ago_in_words(@micropost.created_at)%> ago</div>
+  <div id="gravastuff">
+  <%= gravatar_for @micropost.user, :size =>30, :default=>'identicon'%>
+  <%= link_to @micropost.user.name, @micropost.user%>
+  </div>
+  </div>
+</div>
 
 
   

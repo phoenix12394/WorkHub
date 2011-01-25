@@ -1,7 +1,6 @@
 class MicropostsController < ApplicationController
   before_filter :authenticate, :only => [:create, :destroy]
   before_filter :authorized_user, :only => [:destroy, :edit, :update]
-  autocomplete :tag, :name
 
     
  # query = Micropost.order("created_at DESC")
@@ -58,7 +57,25 @@ end
   
   def show
     @micropost = Micropost.find(params[:id])
-    @title = @micropost.title
+    @title = @micropost.title    
+    
+  end
+
+  def qualified
+    @micropost = Micropost.find(params[:id])
+    @title = "Qualified candidates"
+    @users = []
+    User.all.each do |user|
+      passed = true
+      @micropost.tags.each do |tag|
+        passed = false unless user.tags.include?(tag)
+      end
+      if passed
+        @users << user
+      end
+    end
+    
+    @users= @users.paginate(:page => params[:page])    
   end
 
   def tags
@@ -66,34 +83,33 @@ end
     @tags = @micropost.tags
   end
 
+
   def tag_add
     @micropost = Micropost.find(params[:id])
-    @tag = Tag.find(params[:tag])
-    
-    unless @micropost.has_tag?(@tag)
+    tags = Tag.all
+    params[:tag].each do |tag|
+      @tag = Tag.find(tag)
       @micropost.tags << @tag
-      flash[:notice] = 'Tag was successfully added'
-    else
-      flash[:error] = 'User already has tag.'
     end
+   
+    flash[:notice] = 'Tags were successfully added'
+
     redirect_to :action => :tags, :id => @micropost
   end
   
   def tag_remove
     @micropost = Micropost.find(params[:id])
-    tag_ids = params[:tags]
-    unless tag_ids.blank?
-      tag_ids.each do |tag_id|
-        tag = Tag.find(tag_id)
-        if @micropost.has_tag?(tag)
-          logger.info "Removing tag #{tag.id} from user."
-          @micropost.tags.delete(tag)
-          flash[:notice] = 'Tag was successfully deleted'
-        end
-      end
+    tags = Tag.all
+    params[:tag].each do |tag|
+      @tag = Tag.find(tag)
+      @micropost.tags.delete(@tag)
     end
+   
+    flash[:notice] = 'Tags were successfully removed'
+
     redirect_to :action => :tags, :id => @micropost
   end
+
 
   
   private

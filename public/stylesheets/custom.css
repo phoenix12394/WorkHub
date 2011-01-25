@@ -83,7 +83,11 @@ header{
   text-align:right;
 }
 
-
+#facebookStuff{
+  position:absolute;
+  left:700px;
+  top:60px;
+}
 
 #accountNav{
   position:absolute;
@@ -416,7 +420,7 @@ table.microposts tr{
 table.microposts tr td.gravatar{
   border-top: 1px solid #ccc;
   vertical-align: top;
-  width: 50px;
+  width: 90px;
   
 }
 
@@ -485,5 +489,56 @@ form.edit_user textarea{
   height: 20em;
   width: 51em;
   margin-bottom: 0;  
+}
+
+#userwrapper{
+  position:relative;
+}
+
+#userInfo{
+  position:absolute;
+  bottom:30px;
+  right:30px;
+  background-color:#b2ef9f;
+  padding:5px;
+}
+
+
+#userInfo #gravastuff{
+  text-align:top;
+  
+}
+
+
+#userInfo #timeCheck{
+font-size:13px;  
+}
+
+#filterWrapper{
+  position:relative;
+  height:190px;
+}
+
+
+#tagsChoose{
+  position:absolute;
+  top:0;
+  left: 240px;
+
+}
+
+
+
+#relatived{
+  position:relative;
+}
+
+#cat{
+  margin: 40px 0 0 0;
+}
+
+
+#filter{
+  display:inline
 }
 

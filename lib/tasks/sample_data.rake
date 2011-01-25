@@ -5,7 +5,6 @@ namespace :db do
   task :populate => :environment do
     Rake::Task['db:reset'].invoke
     make_users
-    make_locations
     make_microposts
     make_tags
   end
@@ -25,7 +24,7 @@ end
 
 Tag.all.each do |tag|
    Micropost.all.each do |post|
-     if (rand(20) == 1)
+     if (rand(33) == 1)
         post.tags << Tag.find_by_name(tag.name)
       end
     end 
@@ -74,11 +73,3 @@ def make_microposts
   end
        
     
-def make_locations
-    50.times do |n|
-      name = Faker::Address.city
-      Location.create!(:name => name)
-    end   
-
-
-end

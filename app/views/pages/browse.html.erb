@@ -1,0 +1,47 @@
+<%= form_tag(root_path, :method => "get") do%>
+<%@selected1 = params[:location_id]%>
+<%@selected2 = params[:category_id]%>
+<%@selected3 = params[:tag_id]%>
+
+
+<div id="filterWrapper">
+<div id="locCat">
+  <div id="loc" class = "field">
+    <%= label_tag(:l, "Location: ")%><br/>
+    <%= select_tag(:location_id, options_for_select(["Select a location"] + Location.find(:all, :order => "name").collect{|s| [s.name + " (" + s.microposts.count.to_s + ")", s.id]}, @selected1))%>
+  </div>
+  <div id="cat" class = "field">
+    <%= label_tag(:c, "Category: ")%><br/>
+    <%= select_tag(:category_id, options_for_select(["Select a category"] + Category.find(:all, :order => "name").collect{|s| [s.name + " (" + s.microposts.count.to_s + ")", s.id]}, @selected2))%>
+  </div>
+</div>
+<div id="tagsChoose">
+  <div id="relatived" class = "field">
+    <%= label_tag(:t, "Tag: ")%>
+    <div id="tagBox">
+    <%= select_tag(:tag_id, options_for_select(Tag.find(:all, :order => "name").collect{|s| [s.name + " (" + s.microposts.count.to_s + ")", s.id]}, @selected3), :multiple => true)%>
+    <div id="filter"><%= submit_tag("Filter")%></div>
+    </div>
+  </div>
+  </div>
+
+  <%end%>
+  
+</div>
+
+  <table class = "front" summary="For signed-in users">
+    <tr>
+      <td class="main">
+        <h1 class = "micropost"><%= "Recent posts"%></h1>
+        <%=render 'shared/feed'%>
+      </td>
+     
+      
+    </tr>
+    
+    
+    
+    
+    
+    
+  </table>

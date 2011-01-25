@@ -18,8 +18,37 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @title = @user.name
     @microposts = @user.microposts.paginate(:page => params[:page])
+    query = Micropost.order("created_at desc")
+    @posts = []
+    Micropost.all.each do |post|
+      passed = true
+      post.tags.each do |tag|
+        passed = false unless @user.tags.include?(tag)
+      end
+      if passed
+        @posts << post
+      end
+    end
+    
+    @feed_items = @posts.paginate(:page => params[:page])
   end
 
+  def qualifications
+    @user = User.find(params[:id])
+    @title = "Qualifications"
+    @posts = []
+    Micropost.order("created_at desc").each do |post|
+      passed = true
+      post.tags.each do |tag|
+        passed = false unless @user.tags.include?(tag)
+      end
+      if passed
+        @posts << post
+      end
+    end
+    
+    @feed_items = @posts.paginate(:page => params[:page])    
+  end
 
   def create
     @user = User.new(params[:user])
@@ -64,20 +93,26 @@ class UsersController < ApplicationController
   end
 
   def tag_add
-    @user = User.find(params[:id])
-    tags = Tag.all
-    params[:tag].each do |tag|
+      @user = User.find(params[:id])
+
+    unless @selected == nil
+      tags = Tag.all
+     params[:tag].each do |tag|
       @tag = Tag.find(tag)
       @user.tags << @tag
     end
    
-    flash[:notice] = 'Tags were successfully added'
-
+    flash[:notice] = 'Tags were successfully added.'
+    else
+      
+      flash[:notice] = 'No tags were added.'
+    end
     redirect_to :action => :edit, :id => @user
   end
   
   def tag_remove
     @user = User.find(params[:id])
+    unless @selected == nil
     tags = Tag.all
     params[:tag].each do |tag|
       @tag = Tag.find(tag)
@@ -85,7 +120,9 @@ class UsersController < ApplicationController
     end
    
     flash[:notice] = 'Tags were successfully removed'
-
+else
+  flash[:notice] = 'No tags were removed.'
+end
     redirect_to :action => :edit, :id => @user
   end
   

@@ -2,7 +2,7 @@
 <%= form_for (@user) do |f|%>
 <%=render 'shared/error_messages', :object => f.object%>
   <div class = "field">
-    <%= f.label :username%><br/>
+    <%= f.label :display_name%><br/>
     <%= f.text_field :name%>
   </div>
   <div class = "field">
@@ -23,5 +23,5 @@
   <%end%>
 
 
-<%= set_focus_to_id 'user_name' %>
+<%= set_focus_to_id 'display_name' %>
   <%= link_to "Sign up with Facebook", "/auth/facebook" %>

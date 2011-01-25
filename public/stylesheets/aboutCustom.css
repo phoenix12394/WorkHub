@@ -5,6 +5,11 @@
   
 }
 
+section{
+  background-color: transparent;
+  padding: 0;
+}
+
 #mainText{
   position:relative;
   float:left;
@@ -154,124 +159,54 @@ text-shadow: black 0px 1px 2px;
 }
 
 
-#blurbBox{
+#blurbBox1{
+  position:relative;
   margin:0;
   padding:0;
-  height:350px;
-  width:450px;
+  height:270px;
+  width:390px;
   background-repeat:no-repeat;
   margin: 0px 0 0 20px;
+  background-image:url("/images/employerSpeak.png");
 }
 
-
-
-
-
-
-
-
-#aboutBanner{
-  height:327px;
-  width:850px;
-  padding:0;
-  margin:0;
-  background-image:url('/images/aboutBannerTop.png');
-  -webkit-border-top-left-radius:20px;
-  -moz-border-top-left-radius:20px;
-  border-top-left-radius:20px;
-  -webkit-border-top-right-radius:20px;
-  -moz-border-top-right-radius:20px;
-  border-top-right-radius:20px;
-}
-
-#aboutBannerInner{
+#blurbBox2{
   position:relative;
-  height: 327px;
-  width:850px;
   margin:0;
   padding:0;
+  height:270px;
+  width:390px;
+  background-repeat:no-repeat;
+  margin: 0px 0 0 20px;
+  background-image:url("/images/weSpeak.png");
 }
 
-
-
-
-
-
-
-
-section{
-  background-color:transparent;
-  padding:0;
-}
-
-#explanation{
-  height:530px;
-  width:850px;
-  padding:0;
-  margin:0;
-  background-image:url('/images/aboutBannerBottom.png');
+#blurbBox3{
   position:relative;
-  -webkit-border-bottom-left-radius:20px;
-  -moz-border-bottom-left-radius:20px;
-  border-bottom-left-radius:20px;
-  -webkit-border-bottom-right-radius:20px;
-  -moz-border-bottom-right-radius:20px;
-  border-bottom-right-radius:20px;
+  margin:0;
+  padding:0;
+  height:270px;
+  width:390px;
+  background-repeat:no-repeat;
+  margin: 0px 0 0 20px;
+  background-image:url("/images/employeeSpeak.png");
 }
 
-
-#explanation div{
+#words{
   position:absolute;
-  text-align:center
+  top:70px;
+  left:30px;
+  width:320px;
+  line-height:22px;
+  
 }
 
 
-#explanation div h2{
+#words p{
   font-family: 'Lucida Sans', Arial, Helvetica, sans-serif;
-  font-size:18px;
-  text-align:center;
-}
-
-#explanation div div{
-  font-size:16px;
-  position:relative;
-  margin: 0 auto;
-  text-align:center;
-  
-  
-}
-
-
-#stepOne{
-  height:400px;
-  width:200px;
-  left:0;
-  top:40px;
-  text-align:center;
-}
-
-
-
-#stepTwo{
-  height:400px;
-  width:200px;
-  left:218px;
-  top:40px;
-}
-
-#stepThree{
-  height:400px;
-  width:200px;
-  left:425px;
-  top:40px;
-}
-
-
-#SignUp{
-  left:640px;
-  top:40px;
-}
-
-#SignUp p{
-  color:#ffffff;
+color: white;
+font-size: 14px;
+font-weight: bold;
+margin: 0px;
+text-shadow: black 0px 1px 2px;
 }

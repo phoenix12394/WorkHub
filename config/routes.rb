@@ -4,7 +4,7 @@ SampleApp::Application.routes.draw do
 
   match '/contact', :to => 'pages#contact'
   match '/help', :to => 'pages#help'
-
+  match '/browse', :to => 'pages#browse'
   match '/about', :to => 'pages#about'
   match '/signup', :to => 'users#new'
   match '/signin', :to => 'sessions#new'
@@ -17,17 +17,17 @@ match "/signout" => "sessions#destroy", :as => :signout
   get '/microposts/new', :to => 'microposts#new'
   #root :to => "microposts#new"
   #get '/newpost', :to => 'microposts#new'
-  resources :users,   :has_many => [:tags], :member => {:tags => :get, :tag_add => :post, :tag_remove => :post}
+  resources :users,   :has_many => [:tags], :member => {:tags => :get, :tag_add => :post, :tag_remove => :post, :qualifications => :get}
   resources :locations
   resources :categories
   resources :tags, :memeber => {:roll => :get}, :has_many => [:users, :microposts]
-  get 'microposts/autocomplete_tag_name'
 
   
   resources :sessions, :only=> [:new, :create, :destroy]
   resources :microposts, :only=>[:create, :destroy, :show], :has_many => [:tags], :member => {:tags => :get, :tag_add => :post, :tag_remove => :post}
   resources :users do
     get 'tags', :on => :member
+    get 'qualifications', :on => :member
     member do
       post 'tag_add'
       post 'tag_remove'
@@ -36,6 +36,7 @@ match "/signout" => "sessions#destroy", :as => :signout
   
   resources :microposts do
     get 'tags', :on => :member
+    get 'qualified', :on => :member
     member do
       post 'tag_add'
       post 'tag_remove'

@@ -1,5 +1,4 @@
-
-#tabsBar a{
+Bar a{
   font-size:19px;
 }
 
@@ -80,11 +79,12 @@
 
 #gravatarBox{
   float:left;
+  margin:20px 0 0 150px;
 }
 
 #locationBox{
   float:left;
-  margin: 70px 0 0 200px;
+  margin:75px 0 0 0;
 }
 
 #empty{
@@ -105,3 +105,7 @@
   margin:0 0 0 180px;
 }
 
+
+#user_bio{
+  width:400px;
+}

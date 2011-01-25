@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :password
-  attr_accessible :name, :email, :password, :password_confirmation, :bio, :location_id
+  attr_accessible :name, :email, :password, :password_confirmation, :bio, :location_id, :tags
   has_many :microposts, :dependent => :destroy
   validates :password, :presence => true, :confirmation => true, :length => {:within => 6..40}
   before_save :encrypt_password
@@ -25,6 +25,10 @@ end
 
   def has_tag?(tag)
     self.tags.include?(tag)
+  end
+
+  def has_tags
+    Tag.find(:all, :order => "name") - not_have_tags
   end
   
   def not_have_tags
