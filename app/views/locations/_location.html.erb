@@ -1,4 +1,12 @@
-<li>
-    <%= link_to location.name, location%> (<%=location.microposts.count%>)
 
-  </li>
+<tr>
+  <td>
+    <div id="holder">
+    <%= link_to location.name, location%>
+    <div id="numberCount">
+      <%=location.microposts.count%>
+      </div>
+      </div>
+
+  </td>
+</tr>

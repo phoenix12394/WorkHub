@@ -1,0 +1,26 @@
+td{
+  padding:3px 0;
+}
+
+#holder{
+  position:relative;
+}
+
+
+table.microposts tbody tr{
+  height:20px;
+}
+
+
+#numberCount{
+  position:absolute;
+  left:160px;
+  top:0;
+}
+
+
+#numberExplain{
+  position:absolute;
+  top:0px;
+  left:160px;
+}

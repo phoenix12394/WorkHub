@@ -1,4 +1,10 @@
-<li>
-    <%= link_to category.name, category%> (<%= category.microposts.count%>)
-
-  </li>
+<tr>
+  <td>
+    <div id="holder">
+    <%= link_to category.name, category%>
+    <div id="numberCount">
+      <%= category.microposts.count%>
+    </div>
+    </div>
+  </td>
+</tr>

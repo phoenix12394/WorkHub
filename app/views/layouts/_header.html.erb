@@ -6,7 +6,7 @@
       </div>
       <% if signed_in?%>
         <div id="welcome">
-          Good luck filing a job <%=link_to current_user.name, root_path%>!
+          Good luck filing a job <%=link_to current_user.name, current_user%>!
           <h5>Not <%= current_user.name%>? Then <%=link_to "Sign out", signout_path, :method => :delete%></h5>
         </div>
         <%end%>
@@ -17,11 +17,19 @@
       <div id="accountNav">
         <ul>
           <% if signed_in?%>
+            <li><%=link_to "Browse", browse_path%></li>
             <li><%=link_to "New Post", microposts_new_path%></li>
-            <li><%=link_to "Sign out", signout_path, :method => :delete%>  </li>
+            <li><%=link_to "Profile", current_user%></li>
+            <li><%=link_to "Settings", edit_user_path(current_user)%></li>
+            <style type="text/css">
+              #accountNav {width: 500px;}
+            </style>
             <%else%>
-          <li><%= link_to "Login", signin_path%></li> 
-          <li><%= link_to "Sign up", signup_path%></li>
+          <li><%= link_to "Login", signin_path%></li>
+          <li><%=link_to "Browse", browse_path%></li>
+          <style type="text/css">
+              #accountNav {width: 320px;}
+          </style>
             <%end%>
         </ul>
       </div>

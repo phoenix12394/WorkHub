@@ -112,3 +112,44 @@ $('#userTab').click(function(){
 
 
 }
+
+
+function signUpLoad(){
+  $('#user_name').css('color','#aaa');
+  $('#user_name').val('Username');
+  $('#user_email').css('color','#aaa');
+  $('#user_email').val('email@example.com');
+
+  
+  var nameCount=0;
+  var emailCount=0;
+  var passwordCount=0;
+  
+  $('#user_name').focus(function(){
+    if (nameCount == 0){
+    $('#user_name').val('');
+    nameCount=1;
+    $('#user_name').css('color','#000');}
+  })
+  $('#user_name').blur(function(){
+    if (this.value == ""){
+    $('#user_name').val('Username');
+    nameCount=0;
+    $('#user_name').css('color','#aaa');}
+  })
+  
+  $('#user_email').focus(function(){
+    if (emailCount == 0){
+    $('#user_email').val('');
+    emailCount=1;
+    $('#user_email').css('color','#000');}
+  })
+  $('#user_email').blur(function(){
+    if (this.value == ""){
+    $('#user_email').val('email@example.com');
+    emailCount=0;
+    $('#user_email').css('color','#aaa');}
+  })
+  
+  
+}

@@ -63,7 +63,7 @@ header{
 #welcome{
   position:absolute;
   left:270px;
-  top:0;
+  top:5px;
   display:inline;
 }
 
@@ -85,18 +85,18 @@ header{
 
 #facebookStuff{
   position:absolute;
-  left:700px;
+  left:780px;
   top:60px;
 }
 
 #accountNav{
   position:absolute;
   top:0;
-  left:650px;
+  right:-100px;
 }
 
 #accountNav ul{
-  width:340px;
+  width:500px;
   padding:12px 0 0 0;
 }
 
@@ -149,54 +149,18 @@ header{
 
 
 
-#navigationBar{
-  padding:0;
-  margin:0;
-  float:left;
-}
-
-#navigationBar ul{
-  margin: 0 auto;
-}
-
-#navigationBar ul li{
-  list-style-type: none;
-  display: block;
-  padding: 0.2em 0;
-  font-size:13px;
-
-}
 
 
-#navigationBar ul li a{
-  padding: 1px 10px 1px 10px;
-  font-weight: bold;
-  color: #e0e0e0;
-}
 
-#navigationBar ul li a:visited{
-  color: #e0e0e0;
-}
 
-#navigationBar ul li a:hover{
-  color:#ffffff;
-  background:-moz-linear-gradient(right, #2E2E2E 21%, #5FD644 92%, #2E2E2E 100%);
-  background:-webkit-gradient(linear, right top, left top, color-stop(21%,#3e3e3e), color-stop(92%,#5FD644), color-stop(100%,#2E2E2E));
 
-}
 
-a.signup_button{
-  margin-left:auto;
-  margin-right:auto;
-  display:block;
-  text-align:center;
-  width: 190px;
-  color: #fff;
-  background: #006400;
-  font-size:150%;
-  font-weight:bold;
-  padding:20px;
-}
+
+
+
+
+
+
 
 .round{
   -webkit-border-radius:20px;
@@ -207,12 +171,12 @@ a.signup_button{
 
 
 section{
-  margin:0 0 0 20px;
+  margin:0 auto;
   font-size: 120%;
   width:820px;
   padding:20px 35px 20px 35px;
   background-color:#fff;
-  float:left;
+
   position:relative;
   min-height:330px;
 }
@@ -521,9 +485,8 @@ font-size:13px;
 
 
 #tagsChoose{
-  position:absolute;
-  top:0;
-  left: 240px;
+float:left;
+margin: 0 0 0 30px;
 
 }
 
@@ -534,9 +497,13 @@ font-size:13px;
 }
 
 #cat{
-  margin: 40px 0 0 0;
+  float:left;
+  margin:0 0 0 30px; 
 }
 
+#loc{
+  float:left;
+}
 
 #filter{
   display:inline

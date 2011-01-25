@@ -1,0 +1,19 @@
+
+#currentSkills{
+  float:left;
+}
+
+#newSkills{
+  float:left;
+  margin:0 0 0 180px;
+}
+
+
+#links{
+  clear:both;
+}
+
+#tag{
+  height:171px;
+  width:140px;
+}

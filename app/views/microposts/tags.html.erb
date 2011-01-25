@@ -1,4 +1,7 @@
-<h1><%= @micropost.title%>'s skills</h1>
+<%= stylesheet_link_tag 'newPostTags', :media => 'screen'%>
+
+<div id="currentSkills">
+<h2><%= @micropost.title%>'s skills</h2>
 
 <%if @tags.length > 0%>
   <%= form_tag(tag_remove_micropost_path(@micropost)) do%>
@@ -7,9 +10,12 @@
   <%= submit_tag "Remove checked skills"%>
   <%end%>
   <%else%>
-  <p>Does not have any tags.</p>
+  <p>Oops, this post has no tags, add some now.</p>
 <%end%>
+</div>
 
+
+<div id="newSkills">
 <h2>Add new skills</h2>
 <% if @micropost.tags.count < Tag.count then%>
   <%= form_tag(tag_add_micropost_path(@micropost)) do%>
@@ -20,4 +26,9 @@
 <%else%>
 <p> <%=h @micropost.name%> already has all the tags. </p>
 <%end%>
+</div>
+
+
+<div id="links">
 <p><%=link_to "Back", edit_micropost_path%> | <%=link_to "Done", qualified_micropost_path%></p>
+</div>

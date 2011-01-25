@@ -5,7 +5,6 @@
 
 
 <div id="filterWrapper">
-<div id="locCat">
   <div id="loc" class = "field">
     <%= label_tag(:l, "Location: ")%><br/>
     <%= select_tag(:location_id, options_for_select(["Select a location"] + Location.find(:all, :order => "name").collect{|s| [s.name + " (" + s.microposts.count.to_s + ")", s.id]}, @selected1))%>
@@ -14,7 +13,6 @@
     <%= label_tag(:c, "Category: ")%><br/>
     <%= select_tag(:category_id, options_for_select(["Select a category"] + Category.find(:all, :order => "name").collect{|s| [s.name + " (" + s.microposts.count.to_s + ")", s.id]}, @selected2))%>
   </div>
-</div>
 <div id="tagsChoose">
   <div id="relatived" class = "field">
     <%= label_tag(:t, "Tag: ")%>

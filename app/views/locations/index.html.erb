@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag 'indexCustom', :media => 'screen'%>
+
 <h1>All locations</h1>
 
 
@@ -9,9 +11,16 @@
 
 
 <%=will_paginate @locations%>
+<div id="holder">
+<div id="numberExplain"># of posts</div>
+</div>
 <ul class ="locations">
-  
-  <%= render @locations%>
+  <table class = "microposts" summary="Tag microposts">
+    <tbody>
+      <%= render @locations%>
+    </tbody>
+  </table>
 </ul>
 
 <%=will_paginate @locations%>
+
