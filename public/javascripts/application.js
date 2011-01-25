@@ -1,5 +1,31 @@
 function load(){
   
+  
+  
+$('#pictureBar div').not('#arrows1,#arrows2').css('border','2px solid #888');
+$('#blurbBox').css('background-image','url("/images/changingtextBG.png")');
+
+$('#employer').mouseenter(function(){
+  $('#employer').css('border','3px solid #000');
+  $('#pictureBar div').not('#employer,#arrows1,#arrows2').css('border','2px solid #888');
+  $('#blurbBox').css('background-image','url("/images/employerSpeak.png")');
+});
+
+$('#employee').mouseenter(function(){
+  $('#employee').css('border','3px solid #000');
+  $('#pictureBar div').not('#employee,#arrows1,#arrows2').css('border','2px solid #888');
+  $('#blurbBox').css('background-image','url("/images/employeeSpeak.png")');
+});
+
+$('#fileAJob').mouseenter(function(){
+  $('#fileAJob').css('border','3px solid #000');
+  $('#pictureBar div').not('#fileAJob,#arrows1,#arrows2').css('border','2px solid #888');
+  $('#blurbBox').css('background-image','url("/images/weSpeak.png")');
+});
+
+
+
+  
 $('#bioContent').css('display','none');
 $('#skillsContent').css('display','none');
 $('#credsTab').css('background-color','#fff');

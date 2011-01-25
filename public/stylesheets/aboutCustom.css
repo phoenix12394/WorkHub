@@ -1,8 +1,172 @@
 #background{
   background-image:url("/images/aboutBG.png");
-  height:500;
-  width:800;
+  height:500px;
+  width:800px;
+  
 }
+
+#mainText{
+  position:relative;
+  float:left;
+  width:350px;
+  height:500px;
+  margin:0;
+  padding:0;
+}
+
+
+#what{
+  position:absolute;
+  top:40px;
+  left:50px;
+}
+
+#Explain{
+  line-height:27px;
+  width:300px;
+  position:absolute;
+  top:180px;
+  left:50px;
+}
+
+
+h1{
+color: white;
+font-size: 65px;
+font-weight: bold;
+margin: 0px;
+text-shadow: black 0px 1px 2px;
+font-family:"BankGothic Md BT",Verdana,sans-serif;
+}
+
+h2{
+font-family: 'Lucida Sans', Arial, Helvetica, sans-serif;
+color: white;
+font-size: 15px;
+font-weight: bold;
+margin: 0px;
+text-shadow: black 0px 1px 2px;
+}
+
+
+#signUp{
+  position:absolute;
+  bottom:20px;
+  left:40px;
+}
+
+#changingText{
+  float:left;
+  width:450px;
+  height:500px;
+}
+
+#names{
+  position:absolute;
+  left:350px;
+  top:10px;
+}
+
+#employersName{
+  position:absolute;
+  left:30px;
+  top:10px;
+}
+
+#fileName{
+  position:absolute;
+  left:175px;
+  top:10px;
+}
+
+
+#employeeName{
+  position:absolute;
+  left:330px;
+  top:10px;
+}
+
+
+#names h3{
+  color: black;
+  margin: 0px;
+  font-size:15px;
+  text-shadow: white 0px 1px 2px;
+}
+
+#pictureBar{
+  margin:0;
+  padding:0;
+  position:relative;
+  height:150px;
+  width:450px;
+}
+
+
+#employer{
+  width:90px;
+  height:90px;
+  background-color:#fff;
+  background-image:url("/images/employers.png");
+  position:absolute;
+  top:40px;
+  left:20px;
+}
+
+
+#arrows1{
+  width:60px;
+  height:90px;
+  background-image:url("/images/arrows.png");
+  position:absolute;
+  top:40px;
+  left:110px;
+}
+
+
+#fileAJob{
+  width:90px;
+  height:90px;
+  background-color:#fff;
+  background-image:url("/images/fileCab.png");
+  position:absolute;
+  top:40px;
+  left:170px;
+}
+
+#arrows2{
+  width:60px;
+  height:90px;
+  background-image:url("/images/arrows.png");
+  position:absolute;
+  top:40px;
+  left:260px;
+}
+
+#employee{
+  width:90px;
+  height:90px;
+  background-color:#fff;
+  background-image:url("/images/employees.png");
+  position:absolute;
+  top:40px;
+  left:320px;
+}
+
+
+#blurbBox{
+  margin:0;
+  padding:0;
+  height:350px;
+  width:450px;
+  background-repeat:no-repeat;
+  margin: 0px 0 0 20px;
+}
+
+
+
+
+
 
 
 
@@ -28,31 +192,12 @@
   padding:0;
 }
 
-#what{
-  position:absolute;
-  top:29px;
-  left:68px;
-}
-
-#Explain{
-  width:500px;
-  position:absolute;
-  top:140px;
-  left:310px;
-}
 
 
-section div div div h1{
-  font-family:"BankGothic Md BT",Verdana,sans-serif;
-  color:#999;
-  font-size:60px;
-}
 
-section div div div h3{
-  font-family: 'Lucida Sans', Arial, Helvetica, sans-serif;
-  color:#eee;
-  font-size:19px;
-}
+
+
+
 
 section{
   background-color:transparent;

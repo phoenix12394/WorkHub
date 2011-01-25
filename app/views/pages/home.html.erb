@@ -41,18 +41,46 @@
 <%else%>
 <%= stylesheet_link_tag 'aboutCustom', :media => 'screen'%>
   
-<div id="background">
+<div class="round" id="background">
   <div id="mainText">
     <div id="what">
       <h1>What We Do</h1>
     </div>
     <div id="Explain">
-      <h3>We connect employers and employees based on the skills needed for a job and the skills processed by the employee. Start connecting today by creating an account! It's fast, free and easy!</h3>
+      <h2>We connect employers and employees based on the skills needed for a job and the skills processed by the employee. Start connecting today by creating an account! It's fast, free and easy!</h3>
+    </div>
+    <div id="signUp">
+      <%=link_to image_tag("signUpButton.png", :alt =>"Sign Up Button"), signup_path %>
     </div>
   </div>
   <div id="changingText">
+    <div id="names">
+     <div  id="employersName">
+       <h3>Employers</h3>
+     </div>
+     <div id="fileName">
+       <h3>FileAJob.com</h3>
+     </div>
+     <div id="employeeName">
+       <h3>Employees</h3>
+     </div>
+    </div>
     <div id="pictureBar">
-      
+      <div id="employer">
+        
+      </div>
+      <div id="arrows1">
+        
+      </div>
+      <div id="fileAJob">
+        
+      </div>
+      <div id="arrows2">
+        
+      </div>
+      <div id="employee">
+        
+      </div>
     </div>
     <div id="blurbBox">
       
@@ -60,6 +88,8 @@
     
   </div>
 </div>
+
+<!--
 <div id="aboutBanner">
   <div id="aboutBannerInner">
     <div id="what">
@@ -93,5 +123,5 @@
     <p>Sign Up <br/>
       <%= link_to "sign up now!", signup_path, :class => "signup_button round"%></p>
   </div>
-</div>
+</div>-->
 <%end%>
