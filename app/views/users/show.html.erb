@@ -21,9 +21,15 @@
     
     <td class = "sidebar round">
       <strong>Display name:</strong> <%=@user.name%> <br/>
-      <strong>Location: </strong> <%=@user.location.name unless @user.location.blank?%> <br/>
-      <strong>URL:</strong> <%=link_to user_path(@user), @user%> <br/>
+       <%unless @user.location.blank?%>
+      <strong>Location: </strong> <%=@user.location.name%> <br/>
+      <%else%>
+      <strong>Location:</strong> Unknown
+      <%end%>
+      <br/>
       <strong>Posts:</strong> <%=@user.microposts.count%> <br/>
+      <strong>Job recommendations: </strong> <%=link_to "#{@posts.count}", qualifications_user_path%> <br/>
+      
       <%if @user.bio.blank?%>
       <strong>Bio: </strong> <%= @user.bio%> <br/>
       <%else%>
@@ -38,8 +44,6 @@
       <%else%>
       <%end%>
     </div>
-    <br/>
-      <strong><%=link_to "Job Recommendations", qualifications_user_path%></strong>
 
     </td>
   

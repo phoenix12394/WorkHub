@@ -1,11 +1,10 @@
-
 #currentSkills{
   float:left;
 }
 
 #newSkills{
   float:left;
-  margin:0 0 0 180px;
+  margin:0 0 0 110px;
 }
 
 
@@ -17,3 +16,5 @@
   height:171px;
   width:140px;
 }
+
+

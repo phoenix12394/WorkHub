@@ -1,8 +1,10 @@
- <div id="headerBG">
+<div id="headerBG">
     <header>
       <div id="headerInner">
       <div id="logoDiv">
         <%=link_to image_tag("logo.png", :alt =>"logo"), root_path %>
+        
+
       </div>
       <% if signed_in?%>
         <div id="welcome">
@@ -17,19 +19,16 @@
       <div id="accountNav">
         <ul>
           <% if signed_in?%>
-            <li><%=link_to "Browse", browse_path%></li>
-            <li><%=link_to "New Post", microposts_new_path%></li>
             <li><%=link_to "Profile", current_user%></li>
-            <li><%=link_to "Settings", edit_user_path(current_user)%></li>
-            <style type="text/css">
-              #accountNav {width: 500px;}
-            </style>
-            <%else%>
-          <li><%= link_to "Login", signin_path%></li>
+            <li><%=link_to "Settings", edit_user_path(current_user)%>  </li>
+            <%end%>
+
           <li><%=link_to "Browse", browse_path%></li>
-          <style type="text/css">
-              #accountNav {width: 320px;}
-          </style>
+          <% if signed_in?%>
+            <li><%=link_to "Create a Post", microposts_new_path%></li>
+            <%else%>
+          <li><%= link_to "Login", signin_path%></li> 
+          <li><%= link_to "Sign up", signup_path%></li>
             <%end%>
         </ul>
       </div>

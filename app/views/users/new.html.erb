@@ -1,4 +1,5 @@
 <h1>Sign up</h1>
+<div id="left">
 <%= form_for (@user) do |f|%>
 <%=render 'shared/error_messages', :object => f.object%>
   <div class = "field">
@@ -21,13 +22,18 @@
     <%=f.submit "Sign up"%>
   </div>
   <%end%>
-
+</div>
 
 <script>
 signUpLoad()
 </script>
 
 <%= set_focus_to_id 'user_name' %>
-  <%= link_to "Sign up with Facebook", "/auth/facebook" %>
-
-
+<div id="right">
+  <h3>Or, have a Facebook account?</h3>
+  <ul>
+    <li id="clickMe">
+      <a href="/auth/facebook">.</a>
+    </li>
+  </ul>
+</div>

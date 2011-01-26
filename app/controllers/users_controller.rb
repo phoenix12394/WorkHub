@@ -30,7 +30,6 @@ class UsersController < ApplicationController
       end
     end
     
-    @feed_items = @posts.paginate(:page => params[:page])
   end
 
   def qualifications
@@ -95,39 +94,41 @@ class UsersController < ApplicationController
   def tag_add
       @user = User.find(params[:id])
 
-    unless @selected == nil
+    unless params[:tag] == nil
       tags = Tag.all
      params[:tag].each do |tag|
       @tag = Tag.find(tag)
       @user.tags << @tag
     end
    
-    flash[:notice] = 'Tags were successfully added.'
+    flash[:notice] = 'Skills were successfully added.'
     else
       
-      flash[:notice] = 'No tags were added.'
+      flash[:notice] = 'You didn\'t select a skill to add.'
     end
-    redirect_to :action => :edit, :id => @user
+    redirect_back_or edit_user_path
   end
   
   def tag_remove
+    
     @user = User.find(params[:id])
-    unless @selected == nil
+    unless params[:tag] == nil
     tags = Tag.all
     params[:tag].each do |tag|
       @tag = Tag.find(tag)
       @user.tags.delete(@tag)
     end
    
-    flash[:notice] = 'Tags were successfully removed'
+    flash[:notice] = 'Skills were successfully removed'
 else
-  flash[:notice] = 'No tags were removed.'
+  flash[:notice] = 'You didn\'t select a skill to remove.'
 end
-    redirect_to :action => :edit, :id => @user
+    redirect_back_or edit_user_path
   end
   
   
   private
+  
   
     def correct_user
       @user = User.find(params[:id])

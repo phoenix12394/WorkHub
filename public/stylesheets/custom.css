@@ -506,6 +506,27 @@ margin: 0 0 0 30px;
 }
 
 #filter{
-  display:inline
+  display:inline;
 }
 
+
+#left{
+  float:left;
+}
+
+#right{
+float:left;
+margin:0 0 0 50px;
+}
+
+
+#clickMe{
+  height:25px;
+  width:168px;
+  background-image:url("/images/Facebook.png");
+  list-style-type: none;
+}
+
+#clickMe a{
+  padding:12px 84px;
+}

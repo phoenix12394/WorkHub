@@ -1,5 +1,5 @@
 <h1>Sign in</h1>
-
+<div id="left">
 <%= form_for(:session, :url => sessions_path) do |f|%>
   <div class = "field">
     <%=f.label :email%><br/>
@@ -14,9 +14,17 @@
   </div>
 <%end%>
 
+
 <p>New user? <%=link_to "sign up now!", signup_path%></p>
+</div>
 
 <%= set_focus_to_id 'session_email' %>
 
-  <%= link_to "Sign in with Facebook", "/auth/facebook" %> <br/>
-  <%= link_to "Sign in with Twitter", "/auth/twitter"%>
+<div id="right">
+  <h3>Or, have a Facebook account?</h3>
+  <ul>
+    <li id="clickMe">
+      <a href="/auth/facebook">.</a>
+    </li>
+  </ul>
+</div>

@@ -1,12 +1,12 @@
 <%= stylesheet_link_tag 'dashboard', :media => 'screen'%>
 
-<h1>Edit Profile</h1>
+<h1>Settings</h1>
 <div id="tabsBar">
   <div id="credsTab">
     <a>Credentials</a>
   </div>
   <div id="bioTab">
-    <a>Bio</a>
+    <a>User Info</a>
   </div>
   <div id="skillsTab">
     <a>Skills</a>
@@ -50,7 +50,7 @@
   </div> 
   <div id="gravatarBox">
   <%= gravatar_for @user, :default =>'identicon'%><br/>
-  <a href="http://gravatar.com/emails">Change Profile Picture</a>
+  <a href="http://gravatar.com/emails">Change display picture</a>
   </div>
   <div id="empty"></div> 
   <div id="bioBox" class = "actions">
@@ -73,12 +73,12 @@
 <h1><%= @user.name%>'s skills</h1>
 <%if @tags.length > 0%>
   <%= form_tag(tag_remove_user_path(@user)) do%>
-  <%= select_tag(:tag, options_from_collection_for_select(@user.has_tags, :id, :name, @selected), :multiple => true)%>
+  <%= select_tag(:tag, options_from_collection_for_select(@user.has_tags, :id, :name), :multiple => true)%>
   <br/>
   <%= submit_tag "Remove skills"%>
   <%end%>
   <%else%>
-  <p>Does not have any tags.</p>
+  <p>No skills listed.</p>
 <%end%>
 </div>
 
@@ -87,7 +87,7 @@
 <h1>Add new skills</h1>
 <% if @user.tags.count < Tag.count then%>
   <%= form_tag(tag_add_user_path(@user)) do%>
-  <%= select_tag(:tag, options_from_collection_for_select(@user.not_have_tags, :id, :name, @selected), :multiple => true)%>
+  <%= select_tag(:tag, options_from_collection_for_select(@user.not_have_tags, :id, :name), :multiple => true)%>
   <br/>
   <%= submit_tag 'Add skills'%>
 <%end%>

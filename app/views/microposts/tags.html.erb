@@ -1,13 +1,13 @@
 <%= stylesheet_link_tag 'newPostTags', :media => 'screen'%>
 
 <div id="currentSkills">
-<h2><%= @micropost.title%>'s skills</h2>
+<h2><%= @micropost.title%>'s tags</h2>
 
 <%if @tags.length > 0%>
   <%= form_tag(tag_remove_micropost_path(@micropost)) do%>
     <%= select_tag(:tag, options_from_collection_for_select(@micropost.has_tags, :id, :name), :multiple => true)%>
     
-  <%= submit_tag "Remove checked skills"%>
+  <%= submit_tag "Remove tags"%>
   <%end%>
   <%else%>
   <p>Oops, this post has no tags, add some now.</p>
@@ -21,10 +21,10 @@
   <%= form_tag(tag_add_micropost_path(@micropost)) do%>
 
   <%= select_tag(:tag, options_from_collection_for_select(@micropost.not_have_tags, :id, :name), :multiple => true)%>
-  <%= submit_tag 'Add'%>
+  <%= submit_tag 'Add tags'%>
 <%end%>
 <%else%>
-<p> <%=h @micropost.name%> already has all the tags. </p>
+<p> <%=h @micropost.title%> already has all the tags. </p>
 <%end%>
 </div>
 

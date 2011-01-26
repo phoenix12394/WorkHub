@@ -10,7 +10,7 @@ SampleApp::Application.routes.draw do
   match '/signin', :to => 'sessions#new'
 #  match '/signout', :to => 'sessions#destroy'
 match "/auth/:provider/callback" => "sessions#createauto"
-match "/signout" => "sessions#destroy", :as => :signout  
+match "/signout" => "sessions#destroy"
   match '/newlocation', :to => 'locations#new'
   match '/newcategory', :to => 'categories#new'
   
